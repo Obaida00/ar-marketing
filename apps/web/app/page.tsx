@@ -2,17 +2,11 @@ import { Button } from "@workspace/ui/components/button"
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="text-muted-foreground font-mono text-xs">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
+    <div className="relative min-h-screen w-full scrollbar-none color overflow-x-hidden z-0 bg-background/90">
+        <div className="absolute -top-100 -left-150 w-250 h-200 rounded-full z-0 blur-3xl bg-linear-to-br to-100% from-accent/20 to-primary/80"></div>
+        <div className="absolute -bottom-160 -right-100 w-200 h-250 rounded-full z-0 blur-3xl bg-linear-to-br to-100% from-primary/70  to-accent/20"></div>
+      <div className="flex min-h-svh relative items-center justify-center">
+      <Button>Click me</Button>
       </div>
     </div>
   )
