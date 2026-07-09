@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils";
 import { DirectionProvider } from "@workspace/ui/components/direction";
 import { thmanyahSans, thmanyahDisplay, thmanyahSerifText } from "@/lib/fonts"
-import Header from "@/components/header";
+
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -29,7 +29,6 @@ export default function RootLayout({
       <body className="bg-transparent!">
         <ThemeProvider>
           <DirectionProvider direction="rtl">
-            <Header/>
             {children}
           </DirectionProvider>
         </ThemeProvider>
