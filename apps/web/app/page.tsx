@@ -124,15 +124,15 @@ export default function Page() {
       </div>
       <div
         id="services"
-        className="relative container flex min-h-screen flex-col gap-8 md:pt-35 sm:pt-30 pb-5"
+        className="relative container flex min-h-screen flex-col gap-8 pb-5 sm:pt-30 md:pt-35"
       >
-        <div className="flex flex-col not-md:text-center gap-5">
+        <div className="flex flex-col gap-5 not-md:text-center">
           <h1 className="font-thmanyah-heading text-5xl">خدماتنا</h1>
           <p className="font-thmanyah-serif text-muted-foreground">
             نقدم إليك أفضل الحلول التسويقية لكي تتميز في مشروعك
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+        <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {servicesInfo.map((service, index) => (
             <ServiceShowcaseCard
               key={index}
