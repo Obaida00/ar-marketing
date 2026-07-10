@@ -2,13 +2,18 @@ import { Geist, Geist_Mono } from "next/font/google"
 
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@workspace/ui/lib/utils";
-import { DirectionProvider } from "@workspace/ui/components/direction";
-import { thmanyahSans, thmanyahDisplay, thmanyahSerifText, adobe } from "@/lib/fonts"
-import Header from "@/components/header";
+import { cn } from "@workspace/ui/lib/utils"
+import { DirectionProvider } from "@workspace/ui/components/direction"
+import {
+  thmanyahSans,
+  thmanyahDisplay,
+  thmanyahSerifText,
+  adobe,
+} from "@/lib/fonts"
+import Header from "@/components/header"
+import { LenisProvider } from "@/components/providers/lenis-provider"
 
-
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -25,15 +30,26 @@ export default function RootLayout({
       lang="ar"
       dir="rtl"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, thmanyahDisplay.variable, thmanyahSans.variable, thmanyahSerifText.variable, adobe.variable)}
+      className={cn(
+        "antialiased",
+        fontMono.variable,
+        "font-sans",
+        geist.variable,
+        thmanyahDisplay.variable,
+        thmanyahSans.variable,
+        thmanyahSerifText.variable,
+        adobe.variable
+      )}
     >
       <body className="bg-transparent!">
-        <ThemeProvider>
-          <DirectionProvider direction="rtl">
-            <Header/>
-            {children}
-          </DirectionProvider>
-        </ThemeProvider>
+        <LenisProvider>
+          <ThemeProvider>
+            <DirectionProvider direction="rtl">
+              <Header />
+              {children}
+            </DirectionProvider>
+          </ThemeProvider>
+        </LenisProvider>
       </body>
     </html>
   )
