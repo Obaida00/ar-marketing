@@ -4,7 +4,7 @@ import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils";
 import { DirectionProvider } from "@workspace/ui/components/direction";
-import { thmanyahSans, thmanyahDisplay, thmanyahSerifText } from "@/lib/fonts"
+import { thmanyahSans, thmanyahDisplay, thmanyahSerifText, adobe } from "@/lib/fonts"
 import Header from "@/components/header";
 
 
@@ -25,7 +25,7 @@ export default function RootLayout({
       lang="ar"
       dir="rtl"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, thmanyahDisplay.variable, thmanyahSans.variable, thmanyahSerifText.variable)}
+      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, thmanyahDisplay.variable, thmanyahSans.variable, thmanyahSerifText.variable, adobe.variable)}
     >
       <body className="bg-transparent!">
         <ThemeProvider>

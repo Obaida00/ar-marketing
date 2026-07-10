@@ -9,6 +9,7 @@
 
 @theme inline {
   --font-heading: var(--font-sans);
+  --font-adobe: var(--font-adobe);
   --font-thmanyah-subheading-sans: var(--font-thmanyah-sans);
   --font-thmanyah-heading: var(--font-thmanyah-display);
   --font-thmanyah-serif: var(--font-thmanyah-serif-text);

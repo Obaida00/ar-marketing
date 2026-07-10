@@ -53,3 +53,9 @@ export const thmanyahDisplay = localFonts({
     variable: "--font-thmanyah-display",
     weight: "400",
 })
+
+export const adobe = localFonts({
+    src: "../../../packages/ui/src/fonts/Adobe-Arabic-Regular.ttf",
+    variable: "--font-adobe",
+    weight: "400",
+})
