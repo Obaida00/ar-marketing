@@ -1,24 +1,54 @@
-import { CodeIcon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon, IconSvgElement } from '@hugeicons/react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@workspace/ui/components/card'
-import React from 'react'
+import { CodeIcon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon, IconSvgElement } from "@hugeicons/react"
+import { Button, buttonVariants } from "@workspace/ui/components/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card"
+import { cn } from "@workspace/ui/lib/utils"
+import Link from "next/link"
+import React from "react"
 
-export default function ServiceShowcaseCard({ icon, title, description }: { icon: IconSvgElement, title: string, description: string }) {
-    return (
-        <Card className="bg-background/80 border ring-0 border-primary/70 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20">
-            <CardHeader>
-                <CardTitle>
-                    <div className="w-15 h-15 rounded-xl bg-accent/40 border border-primary/80 flex items-center justify-center">
-                        <HugeiconsIcon icon={icon} className="size-8 text-primary" strokeWidth={2} />
-                    </div>
-                </CardTitle>
-            </CardHeader>
-            <CardContent>
-                <CardTitle className="font-thmanyah-heading text-xl">{title}</CardTitle>
-            </CardContent>
-            <CardFooter>
-                <CardDescription className="font-thmanyah-subheading-sans">{description}</CardDescription>
-            </CardFooter>
-        </Card>
-    )
+export default function ServiceShowcaseCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: IconSvgElement
+  title: string
+  description: string
+}) {
+  return (
+    <Card className="border border-primary/70 bg-background/80 ring-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+      <CardHeader>
+        <CardTitle>
+          <div className="flex h-15 w-15 items-center justify-center rounded-xl border border-primary/80 bg-accent/40">
+            <HugeiconsIcon
+              icon={icon}
+              className="size-8 text-primary"
+              strokeWidth={2}
+            />
+          </div>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-2">
+        <CardTitle className="font-thmanyah-heading text-xl">{title}</CardTitle>
+        <CardDescription className="font-thmanyah-subheading-sans">
+          {description}
+        </CardDescription>
+      </CardContent>
+      <CardFooter>
+        <Link
+          href={"#contact"}
+          className={cn(buttonVariants({ variant: "default", className: "px-5 font-thmanyah-subheading-sans"}))}
+        >
+          اطلب الآن
+        </Link>
+      </CardFooter>
+    </Card>
+  )
 }
