@@ -64,7 +64,7 @@ export default function Page() {
       <div className="fixed -top-100 -left-150 z-0 h-200 w-250 rounded-full bg-linear-to-br from-accent/20 to-primary/80 blur-[150px]"></div>
       <div className="fixed -right-100 -bottom-160 z-0 h-230 w-200 rounded-full bg-linear-to-br from-primary/70 to-accent/20 blur-[100px]"></div>
       {/* Content: */}
-      <div className="relative flex min-h-svh flex-col justify-center gap-4 sm:items-center md:flex-row md:items-center md:justify-evenly md:gap-6">
+      <div className="relative flex min-h-svh flex-col justify-center gap-4 sm:items-center md:flex-row md:items-center md:justify-between md:gap-6">
         <div className="flex flex-col gap-5 not-md:text-center">
           <h1 className="font-thmanyah-heading text-5xl">
             علامة تجارية تليق بمشروعك
@@ -117,15 +117,15 @@ export default function Page() {
       </div>
       <div
         id="services"
-        className="relative container flex min-h-screen flex-col gap-8 px-10 pt-35 pb-5 mt-30"
+        className="relative container flex min-h-screen flex-col gap-8 md:pt-35 sm:pt-30 pb-5"
       >
-        <div className="flex flex-col gap-5">
-          <h1 className="font-thmanyah-heading text-4xl">خدماتنا</h1>
+        <div className="flex flex-col not-md:text-center gap-5">
+          <h1 className="font-thmanyah-heading text-5xl">خدماتنا</h1>
           <p className="font-thmanyah-serif text-muted-foreground">
             نقدم إليك أفضل الحلول التسويقية لكي تتميز في مشروعك
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-5 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
           {servicesInfo.map((service, index) => (
             <ServiceShowcaseCard
               key={index}
