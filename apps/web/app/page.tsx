@@ -10,6 +10,7 @@ import {
   Instagram,
   InstagramIcon,
   Camera01Icon,
+  Video02Icon,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Button } from "@workspace/ui/components/button"
@@ -55,6 +56,12 @@ export default function Page() {
       description:
         "نقدم خدمات التصوير الاحترافي للمنتجات والإعلانات",
     },
+    {
+      icon: Video02Icon,
+      title: "المونتاج السينمائي",
+      description:
+        "نقدم خدمات المونتاج السينمائي لفيديوهاتك ومقاطعك ",
+    },
   ]
 
   return (
@@ -67,7 +74,7 @@ export default function Page() {
       <div className="relative flex min-h-svh flex-col justify-center gap-4 sm:items-center md:flex-row md:items-center md:justify-between md:gap-6">
         <div className="flex flex-col gap-5 not-md:text-center">
           <h1 className="font-thmanyah-heading text-5xl">
-            علامة تجارية تليق بمشروعك
+            علامة تجاريّة تليقُ بمشروعِك
           </h1>
           <p className="font-thmanyah-serif text-lg text-muted-foreground">
             نساعدك على بناء هوية بصرية قوية تُعبّر عن علامتك التجارية وتميّزها
