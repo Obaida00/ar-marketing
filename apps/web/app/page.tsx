@@ -299,7 +299,7 @@ export default function Page() {
       </div>
       <div
         id="services"
-        className="relative flex min-h-screen flex-col gap-8 pb-5 sm:pt-30 md:pt-35"
+        className="relative flex min-h-screen flex-col gap-8 pb-5 sm:pt-20 md:pt-25"
       >
         <div className="flex flex-col gap-5 not-md:text-center">
           <h1 className="font-thmanyah-heading text-5xl">خدماتنا</h1>
@@ -320,7 +320,7 @@ export default function Page() {
       </div>
       <div
         id="our-vision"
-        className="relative flex min-h-screen flex-col justify-center gap-50 pb-5 not-md:pt-20 not-lg:items-center"
+        className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center"
       >
         <div className="flex flex-col items-center gap-3">
           <h1 className="text-center font-thmanyah-heading text-5xl">
@@ -339,7 +339,7 @@ export default function Page() {
       </div>
       <div
         id="our-vision"
-        className="relative flex min-h-screen flex-col justify-center gap-50 pb-5 not-md:pt-20 not-lg:items-center"
+        className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center"
       >
         <h1 className="text-center font-thmanyah-heading text-5xl">رؤيتنا</h1>
         <div className="flex items-center justify-between gap-8">
@@ -361,7 +361,7 @@ export default function Page() {
       </div>
       <div
         id="who-are-we"
-        className="relative flex min-h-screen w-full flex-col justify-center gap-30 pb-5 not-md:pt-20 not-lg:items-center lg:mt-40"
+        className="relative flex min-h-screen w-full flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center lg:mt-20"
       >
         <div className="flex flex-col items-center gap-3">
           <h1 className="text-center font-thmanyah-heading text-5xl">
@@ -410,7 +410,7 @@ export default function Page() {
       </div>
       <div
         id="who-are-we"
-        className="relative flex min-h-screen w-full flex-col items-center justify-center gap-30 pb-5 not-md:pt-40 not-lg:items-center lg:mt-40"
+        className="relative flex min-h-screen w-full flex-col items-center justify-center gap-20 pb-5 not-md:pt-20 not-lg:items-center lg:mt-20"
       >
         <div className="flex w-full flex-col justify-evenly gap-20 md:flex-row md:items-center md:justify-evenly md:gap-30">
           <h1 className="text-center font-thmanyah-heading text-5xl text-nowrap">
@@ -435,7 +435,7 @@ export default function Page() {
       </div>
       <div
         id="our-vision"
-        className="relative flex min-h-screen flex-col justify-center gap-50 pb-5 not-md:pt-20 not-lg:items-center"
+        className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center"
       >
         <div className="flex flex-col items-center gap-3">
           <h1 className="text-center font-thmanyah-heading text-5xl">
