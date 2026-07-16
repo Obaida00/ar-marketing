@@ -309,7 +309,7 @@ export default function Page() {
         </div>
       </div>
       <div
-        id="our-vision"
+        id="portfolio"
         className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center"
       >
         <div className="flex flex-col items-center gap-3">
@@ -328,7 +328,7 @@ export default function Page() {
         </div>
       </div>
       <div
-        id="our-vision"
+        id="vision"
         className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center"
       >
         <h1 className="text-center font-thmanyah-heading text-5xl">رؤيتنا</h1>
@@ -350,7 +350,40 @@ export default function Page() {
         </div>
       </div>
       <div
-        id="who-are-we"
+        id="team"
+        className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15"
+      >
+        <div className="flex flex-col items-center gap-3">
+          <h1 className="text-center font-thmanyah-heading text-5xl">فريقنا</h1>
+          <p className="max-w-lg text-center font-thmanyah-serif text-lg leading-loose text-muted-foreground">
+            تعرّف على الأشخاص الذين يقفون خلف نجاح مشاريعكم
+          </p>
+        </div>
+        <div className="flex flex-col gap-10">
+          <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2">
+            {ceos.map((member, index) => (
+              <MemberCard
+                key={index}
+                name={member.name}
+                role={member.role}
+                icon={Briefcase}
+              />
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+            {team.map((member, index) => (
+              <MemberCard
+                key={index}
+                name={member.name}
+                role={member.role}
+                icon={member.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+      <div
+        id="faq"
         className="relative flex min-h-screen w-full flex-col items-center justify-center gap-20 pb-5 not-md:pt-20 not-lg:items-center lg:mt-20"
       >
         <div className="flex w-full flex-col justify-evenly gap-20 md:flex-row md:items-center md:justify-evenly md:gap-30">
@@ -375,7 +408,7 @@ export default function Page() {
         </div>
       </div>
       <div
-        id="our-vision"
+        id="reviews"
         className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center"
       >
         <div className="flex flex-col items-center gap-3">
@@ -403,7 +436,7 @@ export default function Page() {
         </div>
       </div>
       <div
-        id="our-vision"
+        id="contact"
         className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 mt-50 not-lg:items-center"
       >
         <div className="flex flex-col items-center gap-8">
@@ -414,7 +447,7 @@ export default function Page() {
             ابدأ اليوم، ودعنا نبني معًا علامة تجارية تستحق أن تُرى
           </p>
         </div>
-        <div className="w-full max-w-2xl rounded-lg bg-ca border-primary border p-10 self-center">
+        <div className="w-full max-w-2xl rounded-lg border border-primary bg-card p-10 self-center">
           <ContactForm />
         </div>
       </div>
