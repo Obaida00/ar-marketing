@@ -7,17 +7,11 @@ import {
   InstagramIcon,
   Camera01Icon,
   Video02Icon,
-  ServerStack01Icon,
-  ContentWritingIcon,
-  CubeIcon,
-  Briefcase,
-  ComputerProgramming01Icon,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Button } from "@workspace/ui/components/button"
 import Image from "next/image"
 import ServiceShowcaseCard from "@/components/service-showcase-card"
-import MemberCard from "@/components/member-card"
 import {
   Accordion,
   AccordionContent,
