@@ -8,6 +8,9 @@ type LenisProviderProps = {
 export function LenisProvider({ children }: LenisProviderProps) {
   useEffect(() => {
     const lenis = new Lenis({
+      prevent: (node) => {
+        return node.hasAttribute("data-lenis-prevent")
+      },
       duration: 1.8,
       smoothWheel: true,
       touchMultiplier: 2,

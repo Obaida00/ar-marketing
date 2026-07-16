@@ -1,13 +1,9 @@
 import {
   Rocket01Icon,
-  ArrowDown,
-  ArrowDown01,
   ArrowDown02Icon,
-  CodeIcon,
   MarketingIcon,
   CodeXmlIcon,
   AdobePhotoshopIcon,
-  Instagram,
   InstagramIcon,
   Camera01Icon,
   Video02Icon,
@@ -20,14 +16,6 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Button } from "@workspace/ui/components/button"
 import Image from "next/image"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@workspace/ui/components/card"
 import ServiceShowcaseCard from "@/components/service-showcase-card"
 import MemberCard from "@/components/member-card"
 import {
@@ -37,6 +25,7 @@ import {
   AccordionItem,
 } from "@workspace/ui/components/accordion"
 import ReviewCard from "@/components/review-card"
+import ContactForm from "@/components/contact-form"
 export default function Page() {
   const servicesInfo = [
     {
@@ -211,7 +200,8 @@ export default function Page() {
     {
       name: "أحمد خالد",
       username: "@ahmedk",
-      quote: "فريق مثالي مليء بالخبرة وعملية التعاون من بداية الطريق إلى التسليم بشكل سليم، وتقديم النتائج الجودة العالية وتحسين المنتج والخدمة لتحقيق أهدافنا.",
+      quote:
+        "فريق مثالي مليء بالخبرة وعملية التعاون من بداية الطريق إلى التسليم بشكل سليم، وتقديم النتائج الجودة العالية وتحسين المنتج والخدمة لتحقيق أهدافنا.",
       layout: "featured",
     },
     {
@@ -361,55 +351,6 @@ export default function Page() {
       </div>
       <div
         id="who-are-we"
-        className="relative flex min-h-screen w-full flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center lg:mt-20"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <h1 className="text-center font-thmanyah-heading text-5xl">
-            من نحن؟
-          </h1>
-          <p className="max-w-lg text-center font-thmanyah-heading text-lg leading-loose">
-            تعرف على من وراء الحملات التسويقية المتميزة
-          </p>
-        </div>
-        <div className="grid w-full grid-cols-1 gap-15 sm:grid-cols-2 lg:m-auto lg:w-[60%]">
-          {ceos.map((member, index) => (
-            <MemberCard
-              key={index}
-              name={member.name}
-              role={member.role}
-              icon={Briefcase}
-            />
-          ))}
-        </div>
-        <div className="grid min-h-screen w-full gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {team.map((member, index) => (
-            <MemberCard
-              key={index}
-              name={member.name}
-              role={member.role}
-              icon={member.icon}
-            />
-          ))}
-        </div>
-        <div className="flex flex-col items-center gap-8 text-center">
-          <h1 className="font-thmanyah-heading text-4xl">
-            لديك المؤهلات المناسبة؟ انضم لعائلتنا
-          </h1>
-          <Button
-            variant="default"
-            className={"w-fit gap-3 px-10 py-5 font-thmanyah-subheading-sans"}
-          >
-            <HugeiconsIcon
-              icon={Briefcase}
-              className="size-5"
-              strokeWidth={2}
-            />
-            قدم لدينا
-          </Button>
-        </div>
-      </div>
-      <div
-        id="who-are-we"
         className="relative flex min-h-screen w-full flex-col items-center justify-center gap-20 pb-5 not-md:pt-20 not-lg:items-center lg:mt-20"
       >
         <div className="flex w-full flex-col justify-evenly gap-20 md:flex-row md:items-center md:justify-evenly md:gap-30">
@@ -445,17 +386,36 @@ export default function Page() {
             شاهد ماذا يقول الناس عنا
           </p>
         </div>
-        <div className="grid lg:max-w-[80%] self-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-12 items-center gap-3">
+        <div className="grid items-center gap-3 self-center sm:grid-cols-1 md:grid-cols-2 lg:max-w-[80%] lg:grid-cols-12">
           {reviews.map((review, index) => (
             <ReviewCard
               key={index}
               avatar={`https://avatar.vercel.sh/${review.name}`}
-              layout={review.layout as "featured" | "small" | "medium" | "wide" | "tall" }
+              layout={
+                review.layout as
+                  "featured" | "small" | "medium" | "wide" | "tall"
+              }
               name={review.name}
               username={review.username}
               quote={review.quote}
             />
           ))}
+        </div>
+      </div>
+      <div
+        id="our-vision"
+        className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 mt-50 not-lg:items-center"
+      >
+        <div className="flex flex-col items-center gap-8">
+          <h1 className="text-center font-thmanyah-heading text-5xl">
+            حان الوقت لتصنع حضورك الرقمي !
+          </h1>
+          <p className="text-muted-foregrou max-w-lg font-thmanyah-serif text-lg leading-loose text-muted-foreground">
+            ابدأ اليوم، ودعنا نبني معًا علامة تجارية تستحق أن تُرى
+          </p>
+        </div>
+        <div className="w-full max-w-2xl rounded-lg bg-ca border-primary border p-10 self-center">
+          <ContactForm />
         </div>
       </div>
     </div>
