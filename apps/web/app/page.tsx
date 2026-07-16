@@ -61,63 +61,7 @@ export default function Page() {
       title: "المونتاج السينمائي",
       description: "نقدم خدمات المونتاج السينمائي لفيديوهاتك ومقاطعك ",
     },
-  ]
-  const ceos = [
-    {
-      name: "أيـــهم الشوفـي",
-      role: "إدارة",
-    },
-    {
-      name: "رنيم المحيثاوي",
-      role: "إدارة",
-    },
-  ]
-
-  const team = [
-    {
-      name: "طلال الغزال",
-      role: "مطور واجهات أمامية",
-      icon: ComputerProgramming01Icon,
-    },
-
-    {
-      name: "قيس الفارس",
-      role: "مطور واجهات خلفية",
-      icon: ServerStack01Icon,
-    },
-    {
-      name: "ماهر أبو حمدان",
-      role: "مصمم جرافيك",
-      icon: AdobePhotoshopIcon,
-    },
-    {
-      name: "مرام طيفور",
-      role: "مصممة جرافيك",
-      icon: AdobePhotoshopIcon,
-    },
-
-    {
-      name: "دانا أبو فاعور",
-      role: "كاتبة محتوى",
-      icon: ContentWritingIcon,
-    },
-    {
-      name: "هادي نصر",
-      role: "مصمم رسومات ثلاثية الأبعاد",
-      icon: CubeIcon,
-    },
-    {
-      name: "هاني شلغين",
-      role: "مصور",
-      icon: Camera01Icon,
-    },
-    {
-      name: "جيما",
-      role: "مصورة",
-      icon: Camera01Icon,
-    },
-  ]
-
+  ];
   const faqs = [
     {
       question: "ما هي الخدمات التي تقدمها AR Marketing؟",
@@ -346,39 +290,6 @@ export default function Page() {
                 className="rounded-lg object-cover"
               />
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        id="team"
-        className="relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <h1 className="text-center font-thmanyah-heading text-5xl">فريقنا</h1>
-          <p className="max-w-lg text-center font-thmanyah-serif text-lg leading-loose text-muted-foreground">
-            تعرّف على الأشخاص الذين يقفون خلف نجاح مشاريعكم
-          </p>
-        </div>
-        <div className="flex flex-col gap-10">
-          <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2">
-            {ceos.map((member, index) => (
-              <MemberCard
-                key={index}
-                name={member.name}
-                role={member.role}
-                icon={Briefcase}
-              />
-            ))}
-          </div>
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-            {team.map((member, index) => (
-              <MemberCard
-                key={index}
-                name={member.name}
-                role={member.role}
-                icon={member.icon}
-              />
-            ))}
           </div>
         </div>
       </div>
