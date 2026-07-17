@@ -12,6 +12,7 @@ import {
 } from "@/lib/fonts"
 import Header from "@/components/header"
 import { LenisProvider } from "@/components/providers/lenis-provider"
+import Footer from "@/components/footer"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -47,6 +48,7 @@ export default function RootLayout({
             <DirectionProvider direction="rtl">
               <Header />
               {children}
+              <Footer />
             </DirectionProvider>
           </ThemeProvider>
         </LenisProvider>
