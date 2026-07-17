@@ -1,7 +1,6 @@
 import {
   ArrowUpLeft,
   CopyrightIcon,
-  Mail01FreeIcons,
   Mail02FreeIcons,
   Phone,
 } from "@hugeicons/core-free-icons"
