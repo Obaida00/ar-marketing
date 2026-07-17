@@ -3,10 +3,7 @@ import SectionTemplate from "@/components/section-template"
 
 export default function ContactSection() {
   return (
-    <SectionTemplate
-      id="contact"
-      className="mt-50 mb-20 not-md:pt-15 not-lg:items-center"
-    >
+    <SectionTemplate id="contact" className="mt-50 not-md:pt-15 not-lg:items-center mb-20">
       <div className="flex flex-col items-center gap-8">
         <h1 className="text-center font-thmanyah-heading text-5xl">
           حان الوقت لتصنع حضورك الرقمي !

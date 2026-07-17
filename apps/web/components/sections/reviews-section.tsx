@@ -37,7 +37,7 @@ const reviews = [
 
 export default function ReviewsSection() {
   return (
-    <SectionTemplate id="reviews" className="not-md:pt-15 not-lg:items-center">
+    <SectionTemplate id="reviews" className="">
       <div className="flex flex-col items-center gap-3">
         <h1 className="text-center font-thmanyah-heading text-5xl">
           الآراء والتقييمات

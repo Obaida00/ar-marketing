@@ -3,7 +3,7 @@ import SectionTemplate from "@/components/section-template"
 
 export default function VisionSection() {
   return (
-    <SectionTemplate id="vision" className="not-md:pt-15 not-lg:items-center">
+    <SectionTemplate id="vision" className="">
       <h1 className="text-center font-thmanyah-heading text-5xl">رؤيتنا</h1>
       <div className="flex items-center justify-between gap-8">
         <p className="max-w-lg font-thmanyah-heading text-2xl leading-loose not-lg:text-center">

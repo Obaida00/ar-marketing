@@ -16,7 +16,7 @@ export default function SectionTemplate({
     <section
       id={id}
       className={cn(
-        "relative flex min-h-screen flex-col justify-center gap-20 pb-5",
+        "relative flex min-h-screen flex-col justify-center gap-20 pb-5 not-md:pt-15 not-lg:items-center",
         className
       )}
     >

@@ -48,7 +48,7 @@ export default function ServicesSection() {
   return (
     <SectionTemplate
       id="services"
-      className="justify-start gap-8 sm:pt-20 md:pt-25"
+      className=""
     >
       <div className="flex flex-col gap-5 not-md:text-center">
         <h1 className="font-thmanyah-heading text-5xl">خدماتنا</h1>
