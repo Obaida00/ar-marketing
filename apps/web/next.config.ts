@@ -6,10 +6,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "avatar.vercel.sh"
-      }
-    ]
-  }
+        hostname: "avatar.vercel.sh",
+      },
+    ],
+  },
 }
 
 export default nextConfig

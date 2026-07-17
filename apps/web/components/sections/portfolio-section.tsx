@@ -2,7 +2,10 @@ import SectionTemplate from "@/components/section-template"
 
 export default function PortfolioSection() {
   return (
-    <SectionTemplate id="portfolio" className="not-md:pt-15 not-lg:items-center">
+    <SectionTemplate
+      id="portfolio"
+      className="not-md:pt-15 not-lg:items-center"
+    >
       <div className="flex flex-col items-center gap-3">
         <h1 className="text-center font-thmanyah-heading text-5xl">أعمالنا</h1>
         <p className="max-w-lg text-center font-thmanyah-serif text-lg leading-loose text-muted-foreground">

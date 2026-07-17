@@ -44,7 +44,12 @@ export default function ServiceShowcaseCard({
       <CardFooter>
         <Link
           href={"#contact"}
-          className={cn(buttonVariants({ variant: "default", className: "px-5 font-thmanyah-subheading-sans"}))}
+          className={cn(
+            buttonVariants({
+              variant: "default",
+              className: "px-5 font-thmanyah-subheading-sans",
+            })
+          )}
         >
           اطلب الآن
         </Link>

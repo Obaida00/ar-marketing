@@ -51,7 +51,9 @@ export default function ReviewsSection() {
           <ReviewCard
             key={index}
             avatar={`https://avatar.vercel.sh/${review.name}`}
-            layout={review.layout as "featured" | "small" | "medium" | "wide" | "tall"}
+            layout={
+              review.layout as "featured" | "small" | "medium" | "wide" | "tall"
+            }
             name={review.name}
             username={review.username}
             quote={review.quote}

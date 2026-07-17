@@ -25,9 +25,20 @@ const layouts = {
   featured: "lg:col-span-6 lg:row-span-2",
 }
 
-export default function ReviewCard({name, username, avatar, quote, layout}: ReviewCardProps) {
+export default function ReviewCard({
+  name,
+  username,
+  avatar,
+  quote,
+  layout,
+}: ReviewCardProps) {
   return (
-    <Card className={cn(layouts[layout], "h-full bg-linear-to-t from-accent/80 to-card to-80%")}>
+    <Card
+      className={cn(
+        layouts[layout],
+        "h-full bg-linear-to-t from-accent/80 to-card to-80%"
+      )}
+    >
       <CardHeader>
         <div className="flex items-center gap-3">
           <CardTitle>
@@ -43,9 +54,7 @@ export default function ReviewCard({name, username, avatar, quote, layout}: Revi
             <CardTitle className="font-thmanyah-subheading-sans">
               {name}
             </CardTitle>
-            <CardDescription className="font-mono">
-              {username}
-            </CardDescription>
+            <CardDescription className="font-mono">{username}</CardDescription>
           </div>
         </div>
       </CardHeader>

@@ -7,7 +7,11 @@ type SectionTemplateProps = {
   className?: string
 }
 
-export default function SectionTemplate({ id, children, className }: SectionTemplateProps) {
+export default function SectionTemplate({
+  id,
+  children,
+  className,
+}: SectionTemplateProps) {
   return (
     <section
       id={id}

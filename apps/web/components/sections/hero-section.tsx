@@ -12,12 +12,16 @@ export default function HeroSection() {
           علامة تجاريّة تليقُ بمشروعِك
         </h1>
         <p className="font-thmanyah-serif text-lg text-muted-foreground">
-          نساعدك على بناء هوية بصرية قوية تُعبّر عن علامتك التجارية وتميّزها
-          في السوق.
+          نساعدك على بناء هوية بصرية قوية تُعبّر عن علامتك التجارية وتميّزها في
+          السوق.
         </p>
         <div className="flex items-center gap-3 not-md:justify-center">
           <Button className="w-fit font-thmanyah-subheading-sans" size="lg">
-            <HugeiconsIcon icon={Rocket01Icon} className="size-5" strokeWidth={2} />
+            <HugeiconsIcon
+              icon={Rocket01Icon}
+              className="size-5"
+              strokeWidth={2}
+            />
             اطلب استشارة
           </Button>
           <Button
@@ -25,7 +29,11 @@ export default function HeroSection() {
             className="w-fit border border-primary/60 bg-accent font-thmanyah-subheading-sans hover:bg-accent/80"
             size="lg"
           >
-            <HugeiconsIcon icon={ArrowDown02Icon} className="size-5" strokeWidth={2} />
+            <HugeiconsIcon
+              icon={ArrowDown02Icon}
+              className="size-5"
+              strokeWidth={2}
+            />
             تعرف على خدماتنا
           </Button>
         </div>

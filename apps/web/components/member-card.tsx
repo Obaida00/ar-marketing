@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card"
-import Image from 'next/image'
+import Image from "next/image"
 import React from "react"
 
 type MemberCardProps = {
@@ -16,14 +16,17 @@ type MemberCardProps = {
   icon: IconSvgElement
 }
 
-export default function MemberCard({ name, role, avatar, icon }: MemberCardProps) {
+export default function MemberCard({
+  name,
+  role,
+  avatar,
+  icon,
+}: MemberCardProps) {
   return (
-    <div
-      className="group relative aspect-3/4 overflow-hidden rounded-3xl"
-    >
+    <div className="group relative aspect-3/4 overflow-hidden rounded-3xl">
       {/* Portrait */}
       <Image
-        src={avatar ?? "/images/Marketing2.jpg"} 
+        src={avatar ?? "/images/Marketing2.jpg"}
         alt={name}
         fill
         priority
@@ -38,8 +41,13 @@ export default function MemberCard({ name, role, avatar, icon }: MemberCardProps
 
       {/* Content */}
       <div className="absolute bottom-0 z-10 w-full p-6 lg:p-7">
-        <HugeiconsIcon icon={icon} className="mb-3 text-white/90" size={35} strokeWidth={1.8}/>
-        <h3 className="font-thmanyah-heading text-2xl lg:text-3xl text-white">
+        <HugeiconsIcon
+          icon={icon}
+          className="mb-3 text-white/90"
+          size={35}
+          strokeWidth={1.8}
+        />
+        <h3 className="font-thmanyah-heading text-2xl text-white lg:text-3xl">
           {name}
         </h3>
         <p className="mt-1 font-thmanyah-serif text-white dark:text-muted-foreground">

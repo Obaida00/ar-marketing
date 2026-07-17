@@ -24,7 +24,8 @@ const servicesInfo = [
   {
     icon: AdobePhotoshopIcon,
     title: "التصميم الجرافيكي",
-    description: "حلول تصميم جذابة تُظهر هوية علامتك التجارية وتجذب انتباه عملائك",
+    description:
+      "حلول تصميم جذابة تُظهر هوية علامتك التجارية وتجذب انتباه عملائك",
   },
   {
     icon: InstagramIcon,
@@ -45,7 +46,10 @@ const servicesInfo = [
 
 export default function ServicesSection() {
   return (
-    <SectionTemplate id="services" className="gap-8 sm:pt-20 md:pt-25 justify-start">
+    <SectionTemplate
+      id="services"
+      className="justify-start gap-8 sm:pt-20 md:pt-25"
+    >
       <div className="flex flex-col gap-5 not-md:text-center">
         <h1 className="font-thmanyah-heading text-5xl">خدماتنا</h1>
         <p className="font-thmanyah-serif text-muted-foreground">

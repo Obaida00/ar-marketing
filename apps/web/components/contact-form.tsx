@@ -25,7 +25,11 @@ import {
 } from "@workspace/ui/components/combobox"
 import { Button } from "@workspace/ui/components/button"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { MailSend02FreeIcons, WhatsappFreeIcons, WhatsappIcon } from "@hugeicons/core-free-icons"
+import {
+  MailSend02FreeIcons,
+  WhatsappFreeIcons,
+  WhatsappIcon,
+} from "@hugeicons/core-free-icons"
 import { sendContactEmail } from "@/actions/send-email"
 
 export default function ContactForm() {
@@ -113,13 +117,17 @@ export default function ContactForm() {
     نوع العمل: ${businesses.find((b) => b.value === data.business)?.name ?? data.business}
     الرسالة: ${data.message}
     `
-    const encodedUrl = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/963935299727?text=${encodedUrl}`;
-    window.open(whatsappUrl, "_blank");
+    const encodedUrl = encodeURIComponent(whatsappMessage)
+    const whatsappUrl = `https://wa.me/963935299727?text=${encodedUrl}`
+    window.open(whatsappUrl, "_blank")
   }
 
   return (
-    <form id="contact-form" onSubmit={form.handleSubmit(onSubmit)} className="grid w-full gap-3">
+    <form
+      id="contact-form"
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="grid w-full gap-3"
+    >
       <FieldGroup className="font-thmanyah-subheading-sans **:data-[slot=input]:h-12.5">
         <Controller
           name="fullName"
@@ -175,8 +183,12 @@ export default function ContactForm() {
                   value={field.value}
                   onValueChange={field.onChange}
                 >
-                  <ComboboxInput placeholder="اختر دولة"/>
-                  <ComboboxContent sideOffset={14} className="font-thmanyah-subheading-sans" data-lenis-prevent>
+                  <ComboboxInput placeholder="اختر دولة" />
+                  <ComboboxContent
+                    sideOffset={14}
+                    className="font-thmanyah-subheading-sans"
+                    data-lenis-prevent
+                  >
                     <ComboboxEmpty>لم يتم العثور على نتائج</ComboboxEmpty>
                     <ComboboxList>
                       {(item: (typeof countries)[0]) => (
@@ -204,12 +216,15 @@ export default function ContactForm() {
                   itemToStringLabel={(val) =>
                     businesses.find((c) => c.value === val)?.name ?? val
                   }
-                  
                 >
                   <SelectTrigger className={"h-12.5!"}>
                     <SelectValue placeholder="اختر نوع المشروع" />
                   </SelectTrigger>
-                  <SelectContent data-lenis-prevent className={'font-thmanyah-subheading-sans'} alignItemWithTrigger={false}>
+                  <SelectContent
+                    data-lenis-prevent
+                    className={"font-thmanyah-subheading-sans"}
+                    alignItemWithTrigger={false}
+                  >
                     <SelectGroup>
                       {businesses.map((business) => (
                         <SelectItem
@@ -244,8 +259,16 @@ export default function ContactForm() {
               />
               <FieldError errors={[fieldState.error]} />
             </Field>
-          )} />
-        <Button className="h-14! text-lg gap-4" type="submit"> <HugeiconsIcon icon={WhatsappFreeIcons} className="size-6"></HugeiconsIcon>إرسال عبر واتساب</Button>
+          )}
+        />
+        <Button className="h-14! gap-4 text-lg" type="submit">
+          {" "}
+          <HugeiconsIcon
+            icon={WhatsappFreeIcons}
+            className="size-6"
+          ></HugeiconsIcon>
+          إرسال عبر واتساب
+        </Button>
       </FieldGroup>
     </form>
   )
