@@ -46,9 +46,10 @@ export default function HeroSection() {
         transition={{ bounce: 10, duration: 1, ease: "backOut" }}
         whileHover={{
           border: "1px solid var(--color-primary)",
-          scale: 1.02,
-          boxShadow: "0 25px 50px -12px var(--color-primary, rgb(0 0 0 / 0.3))",
-          transition: { type: "tween", duration: 0.6, ease: "easeInOut" },
+          filter: "brightness(1.1)",
+          boxShadow:
+            "0 0 20px -5px var(--color-primary), 0 0 40px -10px var(--color-primary), 0 25px 50px -12px var(--color-primary, rgb(0 0 0 / 0.3))",
+          transition: { type: "tween", duration: 0.8, ease: "easeInOut" },
         }}
         className="ease h-100 w-[50%] rounded-2xl border border-primary/60 bg-accent/30 p-4 shadow-2xl shadow-black/50 not-md:hidden"
       >
