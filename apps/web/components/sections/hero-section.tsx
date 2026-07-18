@@ -1,9 +1,11 @@
+"use client"
 import { Rocket01Icon, ArrowDown02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Button } from "@workspace/ui/components/button"
 import Image from "next/image"
 import SectionTemplate from "@/components/section-template"
 import SectionHeading from "@/components/section-heading"
+import { motion } from "motion/react"
 
 export default function HeroSection() {
   return (
@@ -38,7 +40,17 @@ export default function HeroSection() {
           </Button>
         </div>
       </div>
-      <div className="ease h-100 w-[50%] rounded-2xl border border-primary/60 bg-accent/30 p-4 shadow-2xl shadow-black/50 duration-200 not-md:hidden hover:-rotate-1 hover:border-primary/80 hover:shadow-primary/60">
+      <motion.div
+        initial={{ translateX: "-1000px", opacity: 0, }}
+        animate={{ translateX: "0", opacity: 1 }}
+        transition={{ bounce: 10, duration: 1, ease: "backOut" }}
+        whileHover={{
+          border: "1px solid var(--color-primary)",
+          boxShadow: "0 25px 50px -12px var(--color-primary, rgb(0 0 0 / 0.25)",
+          transition: { type: "tween", duration: 0.2, ease: "easeInOut" },
+        }}
+        className="ease h-100 w-[50%] rounded-2xl border border-primary/60 bg-accent/30 p-4 shadow-2xl shadow-black/50 not-md:hidden"
+      >
         <div className="relative h-full w-full">
           <Image
             src="/images/Marketing.jpg"
@@ -47,7 +59,7 @@ export default function HeroSection() {
             className="rounded-lg object-cover"
           />
         </div>
-      </div>
+      </motion.div>
     </SectionTemplate>
   )
 }
