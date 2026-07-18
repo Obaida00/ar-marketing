@@ -1,6 +1,5 @@
-import { CodeIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon, IconSvgElement } from "@hugeicons/react"
-import { Button, buttonVariants } from "@workspace/ui/components/button"
+import { buttonVariants } from "@workspace/ui/components/button"
 import {
   Card,
   CardContent,

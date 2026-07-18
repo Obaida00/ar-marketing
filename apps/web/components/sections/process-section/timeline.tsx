@@ -1,5 +1,5 @@
 "use client"
-import { motion, MotionValue, useTransform } from "motion/react"
+import { MotionValue } from "motion/react"
 import React from "react"
 import Milestone from "./milestone"
 import { processData } from "@/data/process-data"
@@ -11,13 +11,7 @@ type TimelineProps = {
 
 export default function Timeline({
   activeStep,
-  scrollYProgress,
 }: TimelineProps) {
-  const background = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["#68777d", "#009799"]
-  )
   return (
     <div className="h-xl! sticky top-40 flex flex-col justify-evenly gap-5 self-start">
       {processData.map((process, index) => (
