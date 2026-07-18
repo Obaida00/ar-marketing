@@ -1,10 +1,11 @@
 import Image from "next/image"
 import SectionTemplate from "@/components/section-template"
+import SectionHeading from "../section-heading"
 
 export default function VisionSection() {
   return (
     <SectionTemplate id="vision" className="">
-      <h1 className="text-center font-thmanyah-heading text-5xl">رؤيتنا</h1>
+      <SectionHeading title="رؤيتنا" align="start"/>
       <div className="flex items-center justify-between gap-8">
         <p className="max-w-lg font-thmanyah-heading text-2xl leading-loose not-lg:text-center">
           نؤمن بأن التسويق الرقمي هو مفتاح النجاح في العصر الحديث، ونعمل على

@@ -23,7 +23,7 @@ export default function ServiceShowcaseCard({
   description: string
 }) {
   return (
-    <Card className="border border-primary/70 bg-background/80 ring-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+    <Card className="border border-primary/70 bg-background/80 ring-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20 justify-between">
       <CardHeader>
         <CardTitle>
           <div className="flex h-15 w-15 items-center justify-center rounded-xl border border-primary/80 bg-accent/40">
@@ -36,8 +36,10 @@ export default function ServiceShowcaseCard({
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
-        <CardTitle className="font-thmanyah-heading text-xl">{title}</CardTitle>
-        <CardDescription className="font-thmanyah-subheading-sans">
+        <CardTitle className="font-thmanyah-heading text-2xl">
+          {title}
+        </CardTitle>
+        <CardDescription className="font-thmanyah-subheading-sans leading-relaxed">
           {description}
         </CardDescription>
       </CardContent>

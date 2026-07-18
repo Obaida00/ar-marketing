@@ -49,7 +49,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="flex w-full flex-col justify-center gap-5 border-t border-accent bg-background p-6 backdrop-blur-3xl sm:p-10">
+    <footer className="flex w-full flex-col justify-center gap-5 border-t border-accent bg-background p-6 backdrop-blur-3xl mt-0 sm:p-10">
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-center font-thmanyah-subheading-sans text-4xl font-bold sm:text-6xl md:text-8xl lg:text-9xl">
           <span className="text-primary">AR</span> MARKETING

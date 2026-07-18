@@ -6,7 +6,7 @@ export default function ContactSection() {
   return (
     <SectionTemplate
       id="contact"
-      className="mt-50 mb-20 not-md:pt-15 not-lg:items-center"
+      className="mt-50 pb-30 not-md:pt-15 not-lg:items-center"
     >
       <SectionHeading
         title="حان الوقت لتصنع حضورك الرقمي !"
