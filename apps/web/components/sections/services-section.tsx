@@ -5,6 +5,7 @@ import {
   InstagramIcon,
   Camera01Icon,
   Video02Icon,
+  TradeMarkIcon,
 } from "@hugeicons/core-free-icons"
 import ServiceShowcaseCard from "@/components/service-showcase-card"
 import SectionTemplate from "@/components/section-template"
@@ -14,34 +15,38 @@ const servicesInfo = [
   {
     icon: CodeXmlIcon,
     title: "البرمجة والتطوير",
-    description: "نقدم حلول برمجية مبتكرة تلبي احتياجات عملك وتساعدك على النمو",
+    description:
+      "تصميم وتطوير المواقع الإلكترونية، المتاجر الرقمية، لوحات التحكم، والأنظمة المخصصة باستخدام أحدث التقنيات وبأفضل معايير الأداء.",
   },
   {
     icon: MarketingIcon,
     title: "التسويق الرقمي",
     description:
-      "نقدم حلول تسويقية مبتكرة تساعدك على الوصول إلى جمهورك المستهدف وزيادة مبيعاتك",
+      "إعداد الاستراتيجيات التسويقية، إدارة الحملات الإعلانية، تحسين الظهور في محركات البحث (SEO)، وتحليل الأداء لتحقيق نمو مستدام.",
   },
   {
-    icon: AdobePhotoshopIcon,
-    title: "التصميم الجرافيكي",
+    icon: TradeMarkIcon,
+    title: "الهوية والعلامة التجارية",
     description:
-      "حلول تصميم جذابة تُظهر هوية علامتك التجارية وتجذب انتباه عملائك",
+      "بناء هوية بصرية متكاملة تشمل تصميم الشعارات، الألوان، الخطوط، ودليل الهوية بما يعكس شخصية علامتك التجارية.",
   },
   {
     icon: InstagramIcon,
-    title: "إدارة صفحات وسائل التواصل الاجتماعي",
-    description: "نقدم حلول تسويقية مبتكرة عبر وسائل التواصل الاجتماعي",
+    title: "إدارة وسائل التواصل الاجتماعي",
+    description:
+      "إدارة الحسابات، إعداد خطط المحتوى، تصميم المنشورات، كتابة النصوص التسويقية، والتفاعل مع الجمهور لتعزيز حضور العلامة التجارية.",
   },
   {
     icon: Camera01Icon,
     title: "تصوير المنتجات والإعلانات",
-    description: "نقدم خدمات التصوير الاحترافي للمنتجات والإعلانات",
+    description:
+      "إنتاج صور احترافية للمنتجات، جلسات تصوير تجارية، وتصوير الحملات الإعلانية لإبراز منتجاتك بأفضل صورة.",
   },
   {
     icon: Video02Icon,
-    title: "المونتاج السينمائي",
-    description: "نقدم خدمات المونتاج السينمائي لفيديوهاتك ومقاطعك",
+    title: "المونتاج والإنتاج المرئي",
+    description:
+      "مونتاج الفيديوهات، صناعة الإعلانات، الموشن جرافيك، وإخراج المحتوى المرئي بجودة احترافية تناسب مختلف المنصات.",
   },
 ]
 
@@ -49,7 +54,7 @@ export default function ServicesSection() {
   return (
     <SectionTemplate id="services" className="">
       <SectionHeading
-        title="خدماتنا"
+        title="حلول متكاملة لنمو أعمالك"
         subtitle="نقدم إليك أفضل الحلول التسويقية لكي تتميز في مشروعك"
         align="start"
         className="mt-45"
