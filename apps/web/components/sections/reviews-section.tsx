@@ -1,5 +1,6 @@
 import ReviewCard from "@/components/review-card"
 import SectionTemplate from "@/components/section-template"
+import SectionHeading from "@/components/section-heading"
 
 const reviews = [
   {
@@ -38,14 +39,11 @@ const reviews = [
 export default function ReviewsSection() {
   return (
     <SectionTemplate id="reviews" className="">
-      <div className="flex flex-col items-center gap-3">
-        <h1 className="text-center font-thmanyah-heading text-5xl">
-          الآراء والتقييمات
-        </h1>
-        <p className="max-w-lg font-thmanyah-serif text-lg leading-loose text-muted-foreground">
-          شاهد ماذا يقول الناس عنا
-        </p>
-      </div>
+      <SectionHeading
+        title="الآراء والتقييمات"
+        subtitle="شاهد ماذا يقول الناس عنا"
+        className="gap-3"
+      />
       <div className="grid items-center gap-3 self-center sm:grid-cols-1 md:grid-cols-2 lg:max-w-[80%] lg:grid-cols-12">
         {reviews.map((review, index) => (
           <ReviewCard

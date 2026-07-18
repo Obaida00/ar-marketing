@@ -5,6 +5,7 @@ import {
   AccordionItem,
 } from "@workspace/ui/components/accordion"
 import SectionTemplate from "@/components/section-template"
+import SectionHeading from "@/components/section-heading"
 
 const faqs = [
   {
@@ -91,9 +92,7 @@ export default function FaqSection() {
       className="w-full items-center not-md:pt-20 not-lg:items-center lg:mt-20"
     >
       <div className="flex w-full flex-col justify-evenly gap-20 md:flex-row md:items-center md:justify-evenly md:gap-30">
-        <h1 className="text-center font-thmanyah-heading text-5xl text-nowrap">
-          الأسئلة المتكررة
-        </h1>
+        <SectionHeading title="الأسئلة المتكررة" className="text-nowrap" />
         <Accordion className="self-center border-none lg:max-w-4xl">
           {faqs.slice(0, 6).map((faq, index) => (
             <AccordionItem

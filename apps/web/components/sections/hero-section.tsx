@@ -3,18 +3,18 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { Button } from "@workspace/ui/components/button"
 import Image from "next/image"
 import SectionTemplate from "@/components/section-template"
+import SectionHeading from "@/components/section-heading"
 
 export default function HeroSection() {
   return (
     <SectionTemplate className="min-h-svh gap-4 sm:items-center md:flex-row md:items-center md:justify-between md:gap-6">
       <div className="flex flex-col gap-5 not-md:text-center">
-        <h1 className="font-thmanyah-heading text-5xl">
-          علامة تجاريّة تليقُ بمشروعِك
-        </h1>
-        <p className="font-thmanyah-serif text-lg text-muted-foreground">
-          نساعدك على بناء هوية بصرية قوية تُعبّر عن علامتك التجارية وتميّزها في
-          السوق.
-        </p>
+        <SectionHeading
+          title="علامة تجاريّة تليقُ بمشروعِك"
+          subtitle="نساعدك على بناء هوية بصرية قوية تُعبّر عن علامتك التجارية وتميّزها في السوق."
+          align="start"
+          className="gap-5"
+        />
         <div className="flex items-center gap-3 not-md:justify-center">
           <Button className="w-fit font-thmanyah-subheading-sans" size="lg">
             <HugeiconsIcon

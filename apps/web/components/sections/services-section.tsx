@@ -8,6 +8,7 @@ import {
 } from "@hugeicons/core-free-icons"
 import ServiceShowcaseCard from "@/components/service-showcase-card"
 import SectionTemplate from "@/components/section-template"
+import SectionHeading from "../section-heading"
 
 const servicesInfo = [
   {
@@ -46,16 +47,13 @@ const servicesInfo = [
 
 export default function ServicesSection() {
   return (
-    <SectionTemplate
-      id="services"
-      className=""
-    >
-      <div className="flex flex-col gap-5 not-md:text-center">
-        <h1 className="font-thmanyah-heading text-5xl">خدماتنا</h1>
-        <p className="font-thmanyah-serif text-muted-foreground">
-          نقدم إليك أفضل الحلول التسويقية لكي تتميز في مشروعك
-        </p>
-      </div>
+    <SectionTemplate id="services" className="">
+      <SectionHeading
+        title="خدماتنا"
+        subtitle="نقدم إليك أفضل الحلول التسويقية لكي تتميز في مشروعك"
+        align="start"
+        className="mt-45"
+      />
       <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {servicesInfo.map((service, index) => (
           <ServiceShowcaseCard
