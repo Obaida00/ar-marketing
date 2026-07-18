@@ -5,6 +5,8 @@ import VisionSection from "@/components/sections/vision-section"
 import FaqSection from "@/components/sections/faq-section"
 import ReviewsSection from "@/components/sections/reviews-section"
 import ContactSection from "@/components/sections/contact-section"
+import WhoAreWeSection from "@/components/sections/who-are-we-section"
+import WhyUsSection from "@/components/sections/why-us-section"
 
 export default function Page() {
   return (
@@ -13,6 +15,8 @@ export default function Page() {
       <div className="fixed -top-100 -left-150 z-0 h-200 w-250 rounded-full bg-linear-to-br from-accent/20 to-primary/80 blur-[150px]" />
       <div className="fixed -right-100 -bottom-160 z-0 h-230 w-200 rounded-full bg-linear-to-br from-primary/70 to-accent/20 blur-[100px]" />
       <HeroSection />
+      <WhoAreWeSection />
+      <WhyUsSection />
       <ServicesSection />
       <PortfolioSection />
       <VisionSection />
