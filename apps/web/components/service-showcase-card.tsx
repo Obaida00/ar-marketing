@@ -1,3 +1,4 @@
+"use client"
 import { HugeiconsIcon, IconSvgElement } from "@hugeicons/react"
 import { buttonVariants } from "@workspace/ui/components/button"
 import {
@@ -11,6 +12,7 @@ import {
 import { cn } from "@workspace/ui/lib/utils"
 import Link from "next/link"
 import React from "react"
+import { useLenis } from "./providers/lenis-provider"
 
 export default function ServiceShowcaseCard({
   icon,
@@ -21,6 +23,11 @@ export default function ServiceShowcaseCard({
   title: string
   description: string
 }) {
+  const {scrollTo} = useLenis();
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    scrollTo("#contact");
+  };
   return (
     <Card className="border border-primary/70 bg-background/80 ring-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20 justify-between h-full">
       <CardHeader>
@@ -44,7 +51,8 @@ export default function ServiceShowcaseCard({
       </CardContent>
       <CardFooter>
         <Link
-          href={"#contact"}
+        onClick={(e) => handleClick(e)}
+          href={""}
           className={cn(
             buttonVariants({
               variant: "default",
