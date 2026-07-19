@@ -13,6 +13,7 @@ import {
 import Header from "@/components/header"
 import { LenisProvider } from "@/components/providers/lenis-provider"
 import Footer from "@/components/footer"
+import ScrollToTopButton from "@/components/scroll-to-top-button"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -49,6 +50,7 @@ export default function RootLayout({
               <Header />
               {children}
               <Footer />
+              <ScrollToTopButton />
             </DirectionProvider>
           </ThemeProvider>
         </LenisProvider>
