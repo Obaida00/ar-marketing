@@ -2,7 +2,6 @@
 import {
   MarketingIcon,
   CodeXmlIcon,
-  AdobePhotoshopIcon,
   InstagramIcon,
   Camera01Icon,
   Video02Icon,
