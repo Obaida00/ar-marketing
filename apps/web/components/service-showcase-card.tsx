@@ -22,7 +22,7 @@ export default function ServiceShowcaseCard({
   description: string
 }) {
   return (
-    <Card className="border border-primary/70 bg-background/80 ring-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20 justify-between">
+    <Card className="border border-primary/70 bg-background/80 ring-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20 justify-between h-full">
       <CardHeader>
         <CardTitle>
           <div className="flex h-15 w-15 items-center justify-center rounded-xl border border-primary/80 bg-accent/40">

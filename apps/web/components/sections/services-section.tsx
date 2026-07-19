@@ -1,3 +1,4 @@
+"use client"
 import {
   MarketingIcon,
   CodeXmlIcon,
@@ -10,6 +11,7 @@ import {
 import ServiceShowcaseCard from "@/components/service-showcase-card"
 import SectionTemplate from "@/components/section-template"
 import SectionHeading from "../section-heading"
+import { motion } from "motion/react"
 
 const servicesInfo = [
   {
@@ -53,20 +55,34 @@ const servicesInfo = [
 export default function ServicesSection() {
   return (
     <SectionTemplate id="services" className="">
-      <SectionHeading
-        title="حلول متكاملة لنمو أعمالك"
-        subtitle="نقدم إليك أفضل الحلول التسويقية لكي تتميز في مشروعك"
-        align="start"
-        className="mt-45"
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <SectionHeading
+          title="حلول متكاملة لنمو أعمالك"
+          subtitle="نقدم إليك أفضل الحلول التسويقية لكي تتميز في مشروعك"
+          align="start"
+          className="mt-45"
+        />
+      </motion.div>
       <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {servicesInfo.map((service, index) => (
-          <ServiceShowcaseCard
+          <motion.div
             key={index}
-            icon={service.icon}
-            title={service.title}
-            description={service.description}
-          />
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+          >
+            <ServiceShowcaseCard
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+            />
+          </motion.div>
         ))}
       </div>
     </SectionTemplate>

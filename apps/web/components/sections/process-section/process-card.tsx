@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card"
-import { useInView } from "motion/react"
+import { motion, useInView } from "motion/react"
 import React, { useEffect, useRef } from "react"
 
 type ProcessCardProps = {
@@ -27,7 +27,12 @@ export default function ProcessCard({ process, onActive }: ProcessCardProps) {
     }
   }, [isInView, process.id, onActive])
   return (
-    <div className="">
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <Card
         ref={ref}
         className="h-50 justify-between border border-primary/70 bg-background/80 ring-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20"
@@ -43,6 +48,6 @@ export default function ProcessCard({ process, onActive }: ProcessCardProps) {
           </CardDescription>
         </CardContent>
       </Card>
-    </div>
+    </motion.div>
   )
 }

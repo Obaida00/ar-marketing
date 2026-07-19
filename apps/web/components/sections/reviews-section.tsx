@@ -1,6 +1,8 @@
+"use client"
 import ReviewCard from "@/components/review-card"
 import SectionTemplate from "@/components/section-template"
 import SectionHeading from "@/components/section-heading"
+import { motion } from "motion/react"
 
 const reviews = [
   {
@@ -39,12 +41,25 @@ const reviews = [
 export default function ReviewsSection() {
   return (
     <SectionTemplate id="reviews" className="">
-      <SectionHeading
-        title="الآراء والتقييمات"
-        subtitle="شاهد ماذا يقول الناس عنا"
-        className="gap-3"
-      />
-      <div className="grid items-center gap-3 self-center sm:grid-cols-1 md:grid-cols-2 lg:max-w-[80%] lg:grid-cols-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <SectionHeading
+          title="الآراء والتقييمات"
+          subtitle="شاهد ماذا يقول الناس عنا"
+          className="gap-3"
+        />
+      </motion.div>
+      <motion.div
+        className="grid items-center gap-3 self-center sm:grid-cols-1 md:grid-cols-2 lg:max-w-[80%] lg:grid-cols-12"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+      >
         {reviews.map((review, index) => (
           <ReviewCard
             key={index}
@@ -57,7 +72,7 @@ export default function ReviewsSection() {
             quote={review.quote}
           />
         ))}
-      </div>
+      </motion.div>
     </SectionTemplate>
   )
 }
