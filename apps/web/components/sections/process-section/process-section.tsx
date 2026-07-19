@@ -17,7 +17,7 @@ export default function ProcessSection() {
   return (
     <div  ref={sectionRef}>
       <SectionTemplate>
-        <SectionHeading title="رحلة مشروعك معنا" />
+        <SectionHeading title="رحلة مشروعك معنا" align="start"/>
         <div className="grid grid-cols-[150px_1fr]">
           {/* Timeline */}
           <div className="">

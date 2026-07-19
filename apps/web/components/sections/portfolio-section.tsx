@@ -5,7 +5,7 @@ import { motion } from "motion/react"
 
 export default function PortfolioSection() {
   return (
-    <SectionTemplate id="portfolio" className="">
+    <SectionTemplate id="portfolio">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -16,6 +16,7 @@ export default function PortfolioSection() {
           title="أعمالنا"
           subtitle="ألقِ نظرة على بعضٍ من أعمالنا المميزة"
           className="gap-3"
+          align="start"
         />
       </motion.div>
       <motion.div
