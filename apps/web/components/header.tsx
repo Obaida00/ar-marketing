@@ -28,12 +28,13 @@ export default function Header() {
 
   return (
     <header className="fixed z-99 flex w-full items-center justify-between border-b border-accent bg-background/60 p-5 backdrop-blur-3xl">
-      <Link
-        href={"/"}
-        className="font-thmanyah-heading text-2xl font-bold text-foreground"
+      <a
+        href="#"
+        onClick={(e) => { e.preventDefault(); scrollTo(0) }}
+        className="font-thmanyah-heading text-2xl font-bold text-foreground cursor-pointer"
       >
         <span className="text-primary">AR</span> Marketing
-      </Link>
+      </a>
       <nav className="flex items-center gap-10">
         {navLinks.map(({ label, href }) => (
           <a
@@ -54,6 +55,10 @@ export default function Header() {
             "font-thmanyah-subheading-sans text-foreground!",
             buttonVariants({ variant: "link" })
           )}
+          onClick={(e) => {
+            e.preventDefault()
+            scrollTo("/")
+          }}
         >
           متجرنا
           <HugeiconsIcon strokeWidth={2} icon={ArrowUpLeft}></HugeiconsIcon>
