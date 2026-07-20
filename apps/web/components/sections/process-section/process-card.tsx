@@ -30,7 +30,7 @@ export default function ProcessCard({ process, onActive }: ProcessCardProps) {
     <motion.div
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{  margin: "-100px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <Card

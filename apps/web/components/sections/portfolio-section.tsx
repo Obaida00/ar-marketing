@@ -9,7 +9,7 @@ export default function PortfolioSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{  margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <SectionHeading
@@ -23,7 +23,7 @@ export default function PortfolioSection() {
         className="flex items-center justify-center gap-8"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{  margin: "-60px" }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
       >
         <p className="font-thmanyah-heading text-4xl text-muted-foreground">

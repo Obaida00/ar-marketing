@@ -13,7 +13,7 @@ export default function ContactSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{  margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <SectionHeading
@@ -26,7 +26,7 @@ export default function ContactSection() {
         className="w-full max-w-2xl self-center rounded-lg border border-primary bg-card p-10"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{  margin: "-60px" }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
       >
         <ContactForm />

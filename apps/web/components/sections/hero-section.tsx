@@ -6,8 +6,11 @@ import Image from "next/image"
 import SectionTemplate from "@/components/section-template"
 import SectionHeading from "@/components/section-heading"
 import { motion } from "motion/react"
+import { useLenis } from "../providers/lenis-provider"
 
 export default function HeroSection() {
+  const { scrollTo } = useLenis()
+
   return (
     <SectionTemplate className="min-h-svh gap-4 sm:items-center md:flex-row md:items-center md:justify-between md:gap-6">
       <div className="flex flex-col gap-5 not-md:text-center">
@@ -30,7 +33,11 @@ export default function HeroSection() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
         >
           <motion.div whileHover={{ scale: 1.05 }}>
-            <Button className="w-fit font-thmanyah-subheading-sans" size="lg">
+            <Button
+              className="w-fit font-thmanyah-subheading-sans"
+              size="lg"
+              onClick={() => scrollTo("#contact")}
+            >
               <HugeiconsIcon
                 icon={Rocket01Icon}
                 className="size-5"
@@ -44,6 +51,8 @@ export default function HeroSection() {
               variant="secondary"
               className="w-fit border border-primary/60 bg-accent font-thmanyah-subheading-sans hover:bg-accent/80"
               size="lg"
+              onClick={() => scrollTo("#services")}
+
             >
               <HugeiconsIcon
                 icon={ArrowDown02Icon}

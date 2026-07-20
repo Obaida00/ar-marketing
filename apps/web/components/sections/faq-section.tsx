@@ -97,7 +97,7 @@ export default function FaqSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{  margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <SectionHeading title="الأسئلة المتكررة" className="text-nowrap" />
@@ -105,7 +105,7 @@ export default function FaqSection() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{  margin: "-60px" }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
           className="self-center lg:max-w-4xl w-full"
         >
