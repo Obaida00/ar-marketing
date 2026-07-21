@@ -57,7 +57,7 @@ export default function ServicesSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{  margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <SectionHeading
@@ -73,7 +73,7 @@ export default function ServicesSection() {
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{  margin: "-60px" }}
             transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
           >
             <ServiceShowcaseCard

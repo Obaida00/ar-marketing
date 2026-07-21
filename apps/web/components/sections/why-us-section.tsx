@@ -19,7 +19,7 @@ export default function WhyUsSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{  margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <SectionHeading title="أرقام تعكس ثقة العملاء" align="start" />
@@ -31,7 +31,7 @@ export default function WhyUsSection() {
               className="flex flex-col items-center gap-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{  margin: "-60px" }}
               transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
             >
               <div className="text-6xl md:text-4xl lg:text-6xl">
