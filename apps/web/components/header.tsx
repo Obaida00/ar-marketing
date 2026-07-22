@@ -9,7 +9,7 @@ import { useLenis } from "@/components/providers/lenis-provider"
 
 const navLinks = [
   { label: "خدماتنا", href: "#services" },
-  { label: "أعمالنا", href: "#portfolio" },
+  { label: "أعمالنا", href: "/portfolio" },
   { label: "من نحن؟", href: "#who-are-we" },
 ]
 

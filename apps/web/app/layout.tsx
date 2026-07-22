@@ -46,7 +46,7 @@ export default function RootLayout({
       <body className="bg-transparent!">
         <LenisProvider>
           <ThemeProvider>
-            <DirectionProvider direction="rtl">
+            <DirectionProvider direction="ltr">
               <Header />
               {children}
               <Footer />
