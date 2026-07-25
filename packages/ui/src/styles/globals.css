@@ -9,6 +9,7 @@
 
 @theme inline {
   --font-heading: var(--font-sans);
+  --font-adobe: var(--font-adobe);
   --font-thmanyah-subheading-sans: var(--font-thmanyah-sans);
   --font-thmanyah-heading: var(--font-thmanyah-display);
   --font-thmanyah-serif: var(--font-thmanyah-serif-text);
@@ -51,6 +52,24 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
   --font-sans: var(--font-sans);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 :root {
