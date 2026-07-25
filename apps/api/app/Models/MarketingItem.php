@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class MarketingItem extends Model
+{
+       protected $fillable = [
+        'item_id',
+    ];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
+
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
+
+    public function platforms()
+    {
+        return $this->belongsToMany(
+            Platform::class,
+            'marketing_platform'
+        );
+    }
+}
