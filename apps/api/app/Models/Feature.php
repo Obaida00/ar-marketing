@@ -15,6 +15,6 @@ class Feature extends Model
 
     public function development()
     {
-        return $this->belongsTo(DevelopmentItem::class);
+        return $this->belongsTo(DevelopmentItem::class,'developmentItemId');
     }
 }

@@ -15,6 +15,6 @@ class Result extends Model
 
     public function marketing()
     {
-        return $this->belongsTo(MarketingItem::class);
+        return $this->belongsTo(MarketingItem::class,'marketingItemId');
     }
 }

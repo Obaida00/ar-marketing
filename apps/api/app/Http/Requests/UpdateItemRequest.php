@@ -34,7 +34,7 @@ class UpdateItemRequest extends FormRequest
 
             'description' => 'nullable',
 
-            'featured' => 'nullable|boolean',
+            'featured' => 'nullable|booleans',
 
             'status' => 'boolean',
 

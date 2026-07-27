@@ -17,14 +17,14 @@ class MarketingItem extends Model
 
     public function results()
     {
-        return $this->hasMany(Result::class);
+        return $this->hasMany(Result::class,'marketingItemId');
     }
 
     public function platforms()
     {
         return $this->belongsToMany(
             Platform::class,
-            'marketing_platform'
+            'marketing_platform','marketingItemId', 'platformId'
         );
     }
 }

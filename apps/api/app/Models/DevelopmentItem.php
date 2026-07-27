@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DevelopmentItem extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'itemId',
         'url',
     ];
@@ -18,6 +18,6 @@ class DevelopmentItem extends Model
 
     public function features()
     {
-        return $this->hasMany(Feature::class);
+        return $this->hasMany(Feature::class,'developmentItemId');
     }
 }
