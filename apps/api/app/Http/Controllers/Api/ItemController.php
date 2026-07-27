@@ -248,6 +248,13 @@ class ItemController extends Controller
 
         return response()->json($items, 200);
     }
+    public function filtering($type)
+    {
+
+        $items = Item::where('type',$type)->orderBy('type')->get();
+
+        return response()->json($items, 200);
+    }
 
     public function searchByTitle($title)
     {
