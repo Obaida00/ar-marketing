@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MarketingItem extends Model
 {
        protected $fillable = [
-        'item_id',
+        'itemId',
     ];
 
     public function item()

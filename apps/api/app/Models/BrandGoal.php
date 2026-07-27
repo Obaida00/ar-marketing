@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BrandGoal extends Model
 {
      protected $fillable = [
-        'design_item_id',
+        'designItemId',
         'title',
         'description',
     ];

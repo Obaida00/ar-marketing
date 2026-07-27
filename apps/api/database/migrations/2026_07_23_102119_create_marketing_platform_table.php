@@ -12,17 +12,17 @@ return new class extends Migration {
     {
         Schema::create('marketing_platform', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('marketing_item_id')
-                ->constrained()
+            $table->foreignId('marketingItemId')
+                ->constrained('marketing_items')
                 ->cascadeOnDelete();
 
-            $table->foreignId('platform_id')
-                ->constrained()
+            $table->foreignId('platformId')
+                ->constrained('platforms')
                 ->cascadeOnDelete();
 
             $table->primary([
-                'marketing_item_id',
-                'platform_id'
+                'marketingItemId',
+                'platformId'
             ]);
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ class Platform extends Model
     {
         return $this->belongsToMany(
             MarketingItem::class,
-            'marketing_platform'
+            'marketingPlatform'
         );
     }
 }

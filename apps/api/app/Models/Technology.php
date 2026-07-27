@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Technology extends Model
 {
      protected $fillable = [
-        'item_id',
+        'itemId',
         'name',
     ];
 

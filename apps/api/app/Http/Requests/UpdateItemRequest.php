@@ -24,21 +24,21 @@ class UpdateItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
 
             'slug' => [
-                'required',
+                'nullable',
                 Rule::unique('items', 'slug')
                     ->ignore($this->item)
             ],
 
-            'description' => 'required',
+            'description' => 'nullable',
 
-            'featured' => 'boolean',
+            'featured' => 'nullable|boolean',
 
             'status' => 'boolean',
 
-            'time_took' => 'nullable|integer|min:1',
+            'timeTook' => 'nullable|integer|min:1',
 
         ];
     }

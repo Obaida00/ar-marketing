@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('features', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('development_item_id')
-                ->constrained()
+            $table->foreignId('developmentItemId')
+                ->constrained('development_items')
                 ->cascadeOnDelete();
 
             $table->string('title');
