@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class GalleryImage extends Model
 {
      protected $fillable = [
-        'item_id',
+        'itemId',
         'image',
-        'is_cover',
-        'sort_order',
+        'isCover',
+        'sortOrder',
     ];
 
     protected $casts = [
-        'is_cover' => 'boolean',
+        'isCover' => 'boolean',
     ];
 
     public function item()

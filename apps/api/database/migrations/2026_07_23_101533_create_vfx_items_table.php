@@ -12,9 +12,9 @@ return new class extends Migration {
     {
         Schema::create('vfx_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')
+            $table->foreignId('itemId')
                 ->unique()
-                ->constrained()
+                ->constrained('items')
                 ->cascadeOnDelete();
 
             $table->text('overview');

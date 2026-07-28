@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('technologies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')
-                ->constrained()
+            $table->foreignId('itemId')
+                ->constrained('items')
                 ->cascadeOnDelete();
 
             $table->string('name');

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class DesignItem extends Model
 {
-     protected $fillable = [
-        'item_id',
-        'brand_overview',
+    protected $fillable = [
+        'itemId',
+        'brandOverview',
     ];
 
     public function item()
@@ -18,6 +18,6 @@ class DesignItem extends Model
 
     public function brandGoals()
     {
-        return $this->hasMany(BrandGoal::class);
+        return $this->hasMany(BrandGoal::class,'designItemId');
     }
 }

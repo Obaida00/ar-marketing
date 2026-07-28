@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('brand_goals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('design_item_id')
-                ->constrained()
+            $table->foreignId('designItemId')
+                ->constrained('design_items')
                 ->cascadeOnDelete();
 
             $table->string('title');

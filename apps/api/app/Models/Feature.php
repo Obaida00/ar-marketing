@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Feature extends Model
 {
      protected $fillable = [
-        'development_item_id',
+        'developmentItemId',
         'title',
         'description',
         'icon',
@@ -15,6 +15,6 @@ class Feature extends Model
 
     public function development()
     {
-        return $this->belongsTo(DevelopmentItem::class);
+        return $this->belongsTo(DevelopmentItem::class,'developmentItemId');
     }
 }
