@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreItemRequest;
+use App\Http\Requests\UpdateItemRequest;
+use Egulias\EmailValidator\Result\Reason\ExceptionFound;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,18 +24,32 @@ class ItemController extends Controller
      */
     public function index()
     {
+        try {
+            //     {
+            //     $items = Item::all();
+            //     return response()->json($items, 200);
+            // }
             return Item::with([
-        'images',
-        'technologies',
-        'development.features',
-        'design.brandGoals',
-        'marketing.results',
-        'marketing.platforms',
-        'photography',
-        'vfx'
-    ])
-    ->latest()
-    ->paginate(10);
+                'images',
+                'technologies',
+                'development.features',
+                'design.brandGoals',
+                'marketing.results',
+                'marketing.platforms',
+                'photography',
+                'vfx'
+            ])
+                ->latest()
+                ->paginate(10);
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 500);
+
+        }
     }
 
     /**
@@ -41,144 +58,217 @@ class ItemController extends Controller
     public function store(StoreItemRequest $request)
     {
 
- DB::beginTransaction();
+        DB::beginTransaction();
 
-    try {
-$data = $request->validated();
-        $item = Item::create([
+        try {
+            $data = $request->validated();
+            $item = Item::create([
 
-            'title' => $request->title,
-            'slug' => $request->slug,
-            'description' => $request->description,
-            'type' => $request->type,
-            'featured' => $request->featured,
-            'status' => true,
-            'time_took' => $request->time_took,
+                'title' => $request->title,
+                'slug' => $request->slug,
+                'description' => $request->description,
+                'type' => $request->type,
+                'featured' => $request->featured,
+                'status' => $request->status,
+                'timeTook' => $request->time_took,
 
-        ]);
+            ]);
 
-        switch ($request->type) {
+            switch ($request->type) {
 
-            case 'development':
+                case 'development':
 
-                DevelopmentItem::create([
-                    'item_id' => $item->id,
-                    'url' => $request->url,
-                ]);
+                    DevelopmentItem::create([
+                        'itemId' => $item->id,
+                        'url' => $request->url,
+                    ]);
 
-                break;
+                    break;
 
-            case 'design':
+                case 'design':
 
-                DesignItem::create([
-                    'item_id' => $item->id,
-                    'brand_overview' => $request->brand_overview,
-                ]);
+                    DesignItem::create([
+                        'itemId' => $item->id,
+                        'brandOverview' => $request->brand_overview,
+                    ]);
 
-                break;
+                    break;
 
-            case 'marketing':
+                case 'marketing':
 
-                MarketingItem::create([
-                    'item_id' => $item->id,
-                ]);
+                    MarketingItem::create([
+                        'itemId' => $item->id,
+                    ]);
 
-                break;
+                    break;
 
-            case 'photography':
+                case 'photography':
 
-                PhotographyItem::create([
-                    'item_id' => $item->id,
-                ]);
+                    PhotographyItem::create([
+                        'itemId' => $item->id,
+                    ]);
 
-                break;
+                    break;
 
-            case 'vfx':
+                case 'vfx':
 
-                VfxItem::create([
-                    'item_id' => $item->id,
-                    'overview' => $request->overview,
-                    'result' => $request->result,
-                ]);
+                    VfxItem::create([
+                        'itemId' => $item->id,
+                        'overview' => $request->overview,
+                        'result' => $request->result,
+                    ]);
 
-                break;
+                    break;
+            }
+
+            DB::commit();
+
+            return response()->json($item, 201);
+
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 500);
+
         }
-
-        DB::commit();
-
-        return response()->json($item,201);
-
-    } catch (\Exception $e){
-
-        DB::rollBack();
-
-        return response()->json([
-            'message'=>$e->getMessage()
-        ],500);
-
-    }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Item $item)
+    public function show($itemId)
     {
-         return $item->load([
-        'images',
-        'technologies',
-        'development.features',
-        'design.brandGoals',
-        'marketing.results',
-        'marketing.platforms',
-        'photography',
-        'vfx'
-    ]);
+        try {
+
+            $item = Item::findOrfail($itemId);
+
+            return $item->load([
+                'images',
+                'technologies',
+                'development.features',
+                'design.brandGoals',
+                'marketing.results',
+                'marketing.platforms',
+                'photography',
+                'vfx'
+            ]);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'item is not existed'], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => $e->getMessage(),
+            ], 500);
+
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Item $item)
+    public function update(UpdateItemRequest $request, $itemId)
     {
-         DB::beginTransaction();
+        $validateData = $request->validated();
+        try {
+            $item = Item::findOrfail($itemId);
+            // if ($request->hasFile('image')) {
 
-    try{
+            //     $path = $request->file('image')->store('Flight photo', 'public');
+            //     $validateData['image'] = $path;
+            // }
+            $item->update($validateData);
+            return response()->json([
+                'message' => 'Flight updated successfully',
+                'data' => $item
+            ], 201);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'item is not existed'], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => $e->getMessage(),
+            ], 500);
 
-        $item->update([
+        }
+        // DB::beginTransaction();
 
-            'title'=>$request->title,
-            'slug'=>$request->slug,
-            'description'=>$request->description,
-            'featured'=>$request->featured,
-            'time_took'=>$request->time_took,
+        // try{
 
-        ]);
+        //     $item->update([
 
-        DB::commit();
+        //         'title'=>$request->title,
+        //         'slug'=>$request->slug,
+        //         'description'=>$request->description,
+        //         'featured'=>$request->featured,
+        //         'timeTook'=>$request->time_took,
 
-        return response()->json($item);
+        //     ]);
 
-    }catch(\Exception $e){
+        //     DB::commit();
 
-        DB::rollBack();
+        //     return response()->json($item);
 
-        return response()->json([
-            'message'=>$e->getMessage()
-        ],500);
+        // }catch(\Exception $e){
 
+        //     DB::rollBack();
+
+        //     return response()->json([
+        //         'message'=>$e->getMessage()
+        //     ],500);
+
+        // }
     }
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Item $item)
+    // /**
+    // Remove the specified resource from storage.
+    // **/
+    public function destroy($itemId)
     {
-        $item->delete();
+        try {
+            $item = Item::findOrFail($itemId);
+            $item->delete();
 
-    return response()->json([
-        'message'=>'Deleted Successfully'
-    ]);
+            return response()->json([
+                'message' => 'Deleted Successfully'
+            ]);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'item is not existed'], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => $e->getMessage(),
+            ], 500);
+
+        }
+    }
+    public function searchByType($type)
+    {
+
+        $items = Item::where('type', 'LIKE', "{$type}%")->orderBy('type')->get();
+
+        return response()->json($items, 200);
+    }
+    public function filtering($type)
+    {
+
+        $items = Item::where('type',$type)->orderBy('type')->get();
+
+        return response()->json($items, 200);
+    }
+
+    public function searchByTitle($title)
+    {
+
+        $items = Item::where('title', 'LIKE', "{$title}%")->orderBy('title')->get();
+
+        return response()->json($items, 200);
+    }
+
+    public function searchBySlug($slug)
+    {
+
+        $items = Item::where('slug', 'LIKE', "{$slug}%")->orderBy('slug')->get();
+
+        return response()->json($items, 200);
     }
 }

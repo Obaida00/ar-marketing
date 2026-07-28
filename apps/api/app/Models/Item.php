@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    
+
     protected $fillable = [
         'title',
         'slug',
@@ -14,7 +14,7 @@ class Item extends Model
         'type',
         'featured',
         'status',
-        'time_took',
+        'timeTook',
     ];
 
     protected $casts = [
@@ -26,37 +26,37 @@ class Item extends Model
 
     public function development()
     {
-        return $this->hasOne(DevelopmentItem::class);
+        return $this->hasOne(DevelopmentItem::class,'itemId');
     }
 
     public function design()
     {
-        return $this->hasOne(DesignItem::class);
+        return $this->hasOne(DesignItem::class,'itemId');
     }
 
     public function marketing()
     {
-        return $this->hasOne(MarketingItem::class);
+        return $this->hasOne(MarketingItem::class,'itemId');
     }
 
     public function photography()
     {
-        return $this->hasOne(PhotographyItem::class);
+        return $this->hasOne(PhotographyItem::class,'itemId');
     }
 
     public function vfx()
     {
-        return $this->hasOne(VfxItem::class);
+        return $this->hasOne(VfxItem::class,'itemId');
     }
 
     public function images()
     {
-        return $this->hasMany(GalleryImage::class);
+        return $this->hasMany(GalleryImage::class,'itemId');
     }
 
     public function technologies()
     {
-        return $this->hasMany(Technology::class);
+        return $this->hasMany(Technology::class,'itemId');
     }
 
 }

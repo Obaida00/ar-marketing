@@ -28,7 +28,7 @@ return new class extends Migration {
 
             $table->boolean('status')->default(true);
 
-            $table->integer('time_took')->nullable();
+            $table->integer('timeTook')->nullable();
 
             $table->timestamps();
         });

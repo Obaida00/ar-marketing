@@ -59,7 +59,7 @@ class StoreItemRequest extends FormRequest
                 'boolean'
             ],
 
-            'time_took' => [
+            'timeTook' => [
                 'nullable',
                 'integer',
                 'min:1'
@@ -71,7 +71,7 @@ class StoreItemRequest extends FormRequest
                 'url'
             ],
 
-            'brand_overview' => [
+            'brandOverview' => [
                 Rule::requiredIf($this->type == 'design'),
                 'nullable',
                 'string'
@@ -107,7 +107,7 @@ class StoreItemRequest extends FormRequest
 
             'url.required' => 'Website URL is required for development projects.',
 
-            'brand_overview.required' => 'Brand overview is required.',
+            'brandOverview.required' => 'Brand overview is required.',
 
             'overview.required' => 'Overview is required.',
 

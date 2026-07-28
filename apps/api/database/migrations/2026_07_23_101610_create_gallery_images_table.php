@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('gallery_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')
-                ->constrained()
+            $table->foreignId('itemId')
+                ->constrained('items')
                 ->cascadeOnDelete();
 
             $table->string('image');
