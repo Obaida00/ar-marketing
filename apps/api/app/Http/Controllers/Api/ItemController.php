@@ -243,31 +243,63 @@ class ItemController extends Controller
     }
     public function searchByType($type)
     {
-
-        $items = Item::where('type', 'LIKE', "{$type}%")->orderBy('type')->get();
+        $items = Item::with([
+            'images',
+            'technologies',
+            'development.features',
+            'design.brandGoals',
+            'marketing.results',
+            'marketing.platforms',
+            'photography',
+            'vfx'
+        ])->where('type', 'LIKE', "{$type}%")->orderBy('type')->get();
 
         return response()->json($items, 200);
     }
     public function filtering($type)
     {
-
-        $items = Item::where('type',$type)->orderBy('type')->get();
+        $items = Item::with([
+            'images',
+            'technologies',
+            'development.features',
+            'design.brandGoals',
+            'marketing.results',
+            'marketing.platforms',
+            'photography',
+            'vfx'
+        ])->where('type',$type)->orderBy('type')->get();
 
         return response()->json($items, 200);
     }
 
     public function searchByTitle($title)
     {
-
-        $items = Item::where('title', 'LIKE', "{$title}%")->orderBy('title')->get();
+        $items = Item::with([
+            'images',
+            'technologies',
+            'development.features',
+            'design.brandGoals',
+            'marketing.results',
+            'marketing.platforms',
+            'photography',
+            'vfx'
+        ])->where('title', 'LIKE', "{$title}%")->orderBy('title')->get();
 
         return response()->json($items, 200);
     }
 
     public function searchBySlug($slug)
     {
-
-        $items = Item::where('slug', 'LIKE', "{$slug}%")->orderBy('slug')->get();
+        $items = Item::with([
+            'images',
+            'technologies',
+            'development.features',
+            'design.brandGoals',
+            'marketing.results',
+            'marketing.platforms',
+            'photography',
+            'vfx'
+        ])->where('slug', 'LIKE', "{$slug}%")->orderBy('slug')->get();
 
         return response()->json($items, 200);
     }

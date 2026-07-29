@@ -43,7 +43,7 @@ export default function RootLayout({
         adobe.variable
       )}
     >
-      <body className="bg-transparent!">
+      <body className="bg-transparent!" suppressHydrationWarning>
         <LenisProvider>
           <ThemeProvider>
             <DirectionProvider direction="ltr">
