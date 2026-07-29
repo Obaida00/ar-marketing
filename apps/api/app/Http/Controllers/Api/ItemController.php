@@ -141,6 +141,7 @@ class ItemController extends Controller
      */
     public function show($itemId)
     {
+
         try {
 
             $item = Item::findOrfail($itemId);
@@ -155,6 +156,7 @@ class ItemController extends Controller
                 'photography',
                 'vfx'
             ]);
+
         } catch (ModelNotFoundException $e) {
             return response()->json(['message' => 'item is not existed'], 404);
         } catch (\Exception $e) {
@@ -170,6 +172,7 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, $itemId)
     {
+        DB::beginTransaction();
         $validateData = $request->validated();
         try {
             $item = Item::findOrfail($itemId);
@@ -179,6 +182,7 @@ class ItemController extends Controller
             //     $validateData['image'] = $path;
             // }
             $item->update($validateData);
+            DB::commit();
             return response()->json([
                 'message' => 'Flight updated successfully',
                 'data' => $item
@@ -186,6 +190,7 @@ class ItemController extends Controller
         } catch (ModelNotFoundException $e) {
             return response()->json(['message' => 'item is not existed'], 404);
         } catch (\Exception $e) {
+            DB::rollBack();
             return response()->json([
                 'error' => $e->getMessage(),
             ], 500);
@@ -251,7 +256,7 @@ class ItemController extends Controller
     public function filtering($type)
     {
 
-        $items = Item::where('type',$type)->orderBy('type')->get();
+        $items = Item::where('type', $type)->orderBy('type')->get();
 
         return response()->json($items, 200);
     }
