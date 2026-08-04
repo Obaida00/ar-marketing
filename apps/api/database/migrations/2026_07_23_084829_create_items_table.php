@@ -23,6 +23,7 @@ return new class extends Migration {
                 'photography',
                 'vfx'
             ]);
+             $table->json('images');
 
             $table->boolean('featured')->default(false);
 

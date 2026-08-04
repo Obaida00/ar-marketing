@@ -16,6 +16,8 @@ return new class extends Migration {
                 ->unique()
                 ->constrained('items')
                 ->cascadeOnDelete();
+                $table->json('results')->nullable();
+                $table->json('platforms')->nullable();
             $table->timestamps();
         });
     }

@@ -17,7 +17,10 @@ return new class extends Migration {
                 ->constrained('items')
                 ->cascadeOnDelete();
 
-            $table->string('url')->nullable();
+            $table->string('url');
+            $table->json('technologies');
+            $table->json('features')->nullable();
+
             $table->timestamps();
         });
     }

@@ -10,6 +10,10 @@ class VfxItem extends Model
         'itemId',
         'overview',
         'result',
+        'galleryVfx',
+    ];
+    protected $casts = [
+        'galleryVfx' => 'array',
     ];
 
     public function item()

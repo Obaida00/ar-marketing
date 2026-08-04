@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
+use App\Models\Technology;
 use Egulias\EmailValidator\Result\Reason\ExceptionFound;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -30,12 +31,9 @@ class ItemController extends Controller
             //     return response()->json($items, 200);
             // }
             return Item::with([
-                'images',
-                'technologies',
-                'development.features',
-                'design.brandGoals',
-                'marketing.results',
-                'marketing.platforms',
+                'development',
+                'design',
+                'marketing',
                 'photography',
                 'vfx'
             ])
@@ -62,6 +60,7 @@ class ItemController extends Controller
 
         try {
             $data = $request->validated();
+            //dd($request->galleryPhotography);
             $item = Item::create([
 
                 'title' => $request->title,
@@ -70,7 +69,8 @@ class ItemController extends Controller
                 'type' => $request->type,
                 'featured' => $request->featured,
                 'status' => $request->status,
-                'timeTook' => $request->time_took,
+                'timeTook' => $request->timeTook,
+                'images' => $request->images,
 
             ]);
 
@@ -78,18 +78,26 @@ class ItemController extends Controller
 
                 case 'development':
 
-                    DevelopmentItem::create([
+                    $development = DevelopmentItem::create([
                         'itemId' => $item->id,
                         'url' => $request->url,
+                        'technologies' => $request->technologies,
+                        'features' => $request->features,
                     ]);
+                    // foreach ($request->technologies as $technology) {
 
+                    //      $development->technologies()->create([
+//         'name' => $technology,
+//     ]);}
                     break;
 
                 case 'design':
 
                     DesignItem::create([
                         'itemId' => $item->id,
-                        'brandOverview' => $request->brand_overview,
+                        'brandOverview' => $request->brandOverview,
+                        'galleryDesign' => $request->galleryDesign,
+                        'brand_goals' => $request->brand_goals,
                     ]);
 
                     break;
@@ -98,6 +106,8 @@ class ItemController extends Controller
 
                     MarketingItem::create([
                         'itemId' => $item->id,
+                        'platforms' => $request->platforms,
+                        'results' => $request->results,
                     ]);
 
                     break;
@@ -106,6 +116,7 @@ class ItemController extends Controller
 
                     PhotographyItem::create([
                         'itemId' => $item->id,
+                        'galleryPhotography' => $request->galleryPhotography,
                     ]);
 
                     break;
@@ -116,6 +127,7 @@ class ItemController extends Controller
                         'itemId' => $item->id,
                         'overview' => $request->overview,
                         'result' => $request->result,
+                        'galleryVfx' => $request->galleryVfx,
                     ]);
 
                     break;
@@ -123,7 +135,14 @@ class ItemController extends Controller
 
             DB::commit();
 
-            return response()->json($item, 201);
+            //return response()->json($item, 201);
+            return $item->load([
+                'marketing',
+                'development',
+                'photography',
+                'vfx',
+                'design'
+            ]);
 
         } catch (\Exception $e) {
 
@@ -147,12 +166,9 @@ class ItemController extends Controller
             $item = Item::findOrfail($itemId);
 
             return $item->load([
-                'images',
-                'technologies',
-                'development.features',
-                'design.brandGoals',
-                'marketing.results',
-                'marketing.platforms',
+                'development',
+                'design',
+                'marketing',
                 'photography',
                 'vfx'
             ]);
@@ -172,21 +188,112 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, $itemId)
     {
-        DB::beginTransaction();
-        $validateData = $request->validated();
-        try {
-            $item = Item::findOrfail($itemId);
-            // if ($request->hasFile('image')) {
 
-            //     $path = $request->file('image')->store('Flight photo', 'public');
-            //     $validateData['image'] = $path;
-            // }
-            $item->update($validateData);
+        DB::beginTransaction();
+
+        try {
+
+            $item = Item::findOrFail($itemId);
+
+            // تحديث جدول items
+            $item->update($request->only([
+                'title',
+                'slug',
+                'description',
+                'featured',
+                'status',
+                'timeTook',
+                'images',
+            ]));
+
+            switch ($item->type) {
+
+                case 'development':
+
+                    if ($item->development) {
+                        $item->development->update($request->only([
+                            'url',
+                            'technologies',
+                            'features',
+                        ]));
+
+
+                        // if ($request->has('technologies')) {
+
+                        //     $item->development->technologies()->delete();
+
+                        //     foreach ($request->technologies as $technology) {
+                        //         $item->development->technologies()->create([
+                        //             'name' => $technology,
+                        //         ]);
+                        //     }
+                        // }
+                    }
+
+                    break;
+
+                case 'design':
+
+                    if ($item->design) {
+                        $item->design->update($request->only([
+                            'brandOverview',
+                            'galleryDesign',
+                            'brand_goals',
+                        ]));
+                    }
+
+                    break;
+
+                case 'marketing':
+
+                    if ($item->marketing) {
+                        $item->marketing->update($request->only([
+                            'platforms',
+                            'results',
+                        ]));
+                    }
+
+                    break;
+
+                case 'photography':
+
+                    if ($item->photography) {
+                        $item->photography->update($request->only([
+                            'galleryPhotography'
+                        ]));
+                    }
+
+                    break;
+
+                case 'vfx':
+
+                    if ($item->vfx) {
+
+                        $item->vfx->update($request->only([
+                            'overview',
+                            'result',
+                            'galleryVfx',
+                        ]));
+                    }
+
+                    break;
+            }
+
             DB::commit();
+
             return response()->json([
-                'message' => 'Flight updated successfully',
-                'data' => $item
-            ], 201);
+                'message' => 'Item updated successfully',
+                'data' => $item->load([
+
+                    'development',
+                    'design',
+                    'marketing',
+                    'photography',
+                    'vfx',
+                ])
+            ]);
+
+
         } catch (ModelNotFoundException $e) {
             return response()->json(['message' => 'item is not existed'], 404);
         } catch (\Exception $e) {
@@ -249,12 +356,9 @@ class ItemController extends Controller
     public function searchByType($type)
     {
         $items = Item::with([
-            'images',
-            'technologies',
-            'development.features',
-            'design.brandGoals',
-            'marketing.results',
-            'marketing.platforms',
+            'development',
+            'design',
+            'marketing',
             'photography',
             'vfx'
         ])->where('type', 'LIKE', "{$type}%")->orderBy('type')->get();
@@ -264,15 +368,12 @@ class ItemController extends Controller
     public function filtering($type)
     {
         $items = Item::with([
-            'images',
-            'technologies',
-            'development.features',
-            'design.brandGoals',
-            'marketing.results',
-            'marketing.platforms',
+            'development',
+            'design',
+            'marketing',
             'photography',
             'vfx'
-        ])->where('type',$type)->orderBy('type')->get();
+        ])->where('type', $type)->orderBy('type')->get();
 
         return response()->json($items, 200);
     }
@@ -280,12 +381,9 @@ class ItemController extends Controller
     public function searchByTitle($title)
     {
         $items = Item::with([
-            'images',
-            'technologies',
-            'development.features',
-            'design.brandGoals',
-            'marketing.results',
-            'marketing.platforms',
+            'development',
+            'design',
+            'marketing',
             'photography',
             'vfx'
         ])->where('title', 'LIKE', "{$title}%")->orderBy('title')->get();
@@ -296,12 +394,9 @@ class ItemController extends Controller
     public function searchBySlug($slug)
     {
         $items = Item::with([
-            'images',
-            'technologies',
-            'development.features',
-            'design.brandGoals',
-            'marketing.results',
-            'marketing.platforms',
+           'development',
+            'design',
+            'marketing',
             'photography',
             'vfx'
         ])->where('slug', 'LIKE', "{$slug}%")->orderBy('slug')->get();

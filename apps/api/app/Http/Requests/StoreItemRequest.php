@@ -50,12 +50,16 @@ class StoreItemRequest extends FormRequest
                     'vfx'
                 ])
             ],
+            // 'images'=>[
+            //     'string'
+            // ],
 
             'featured' => [
                 'boolean'
             ],
 
             'status' => [
+                'required',
                 'boolean'
             ],
 
@@ -64,6 +68,12 @@ class StoreItemRequest extends FormRequest
                 'integer',
                 'min:1'
             ],
+
+            // 'technologies' => [
+            //     Rule::requiredIf($this->type == 'development'),
+            //     'nullable',
+
+            // ],
 
             'url' => [
                 Rule::requiredIf($this->type == 'development'),
@@ -83,11 +93,117 @@ class StoreItemRequest extends FormRequest
                 'string'
             ],
 
-            'result' => [
-                Rule::requiredIf($this->type == 'vfx'),
-                'nullable',
-                'string'
+            // 'result' => [
+            //     Rule::requiredIf($this->type == 'vfx'),
+            //     'nullable',
+            //     'string'
+            // ],
+            'technologies' => [
+                Rule::requiredIf($this->type == 'development'),
+                'array',
             ],
+
+            'technologies.*' => [
+                'string',
+                'max:255',
+            ],
+             'galleryDesign' => [
+                Rule::requiredIf($this->type == 'design'),
+                'sometimes',
+                'array',
+            ],
+
+            'galleryDesign.*' => [
+                'string',
+                'max:255',
+            ],
+             'galleryVfx' => [
+                Rule::requiredIf($this->type == 'vfx'),
+                'sometimes',
+                'array',
+            ],
+
+            'galleryVfx.*' => [
+                'string',
+                'max:255',
+            ],
+             'galleryPhotography' => [
+                Rule::requiredIf($this->type == 'photography'),
+                'sometimes',
+                'array',
+            ],
+
+            'galleryPhotography.*' => [
+                'string',
+                'max:255',
+            ],
+              'brand_goals' => [
+                Rule::requiredIf($this->type == 'design'),
+                'sometimes',
+                'array',
+            ],
+
+            'brand_goals.*' => [
+                'string',
+                'max:255',
+            ],
+              'features' => [
+                Rule::requiredIf($this->type == 'development'),
+                'sometimes',
+                'array',
+            ],
+
+            'features.*' => [
+                'string',
+                'max:255',
+            ],
+              'platforms' => [
+                Rule::requiredIf($this->type == 'marketing'),
+                'sometimes',
+                'array',
+            ],
+
+            'platforms.*' => [
+                'string',
+                'max:255',
+            ],
+               'results' => [
+                Rule::requiredIf($this->type == 'marketing'),
+                'sometimes',
+                'array',
+            ],
+
+             'results.*' => [
+                'string',
+                'max:255',
+            ],
+
+            'images' => [
+                'required',
+                'array',
+            ],
+
+            'images.*' => [
+                'string',
+                // 'mimes:jpg,jpeg,png,webp',
+                // 'max:2048',
+            ],
+            // 'technologies' => 'required|array',
+
+            // 'technologies.*' => 'required|string|max:255',
+
+            // 'images' => 'required|array',
+
+            // 'images.*' => 'required|string|max:255',
+
+            // 'galleryDesien' => 'nullable|array',
+
+            // 'galleryDesigen.*' => 'nullable|string|max:255',
+
+            // 'galleryVfx' => 'nullable|array',
+
+            // 'galleryVfx.*' => 'nullable|string|max:255',
+
 
         ];
     }
@@ -105,6 +221,8 @@ class StoreItemRequest extends FormRequest
 
             'type.required' => 'Item type is required.',
 
+            'status.required' => 'status is required.',
+
             'url.required' => 'Website URL is required for development projects.',
 
             'brandOverview.required' => 'Brand overview is required.',
@@ -112,6 +230,15 @@ class StoreItemRequest extends FormRequest
             'overview.required' => 'Overview is required.',
 
             'result.required' => 'Result is required.',
+
+            'technologies.required' => 'Technologies are required.',
+
+            'technologies.array' => 'Technologies must be an array.',
+
+            'images.required' => 'Images are required.',
+
+            'images.array' => 'Images must be an array.',
+
 
         ];
     }

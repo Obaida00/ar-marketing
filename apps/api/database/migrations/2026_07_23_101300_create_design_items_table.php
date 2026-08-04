@@ -16,6 +16,8 @@ return new class extends Migration {
                 ->unique()
                 ->constrained('items')
                 ->cascadeOnDelete();
+            $table->json('galleryDesign')->nullable();
+            $table->json('brand_goals')->nullable();
 
             $table->longText('brandOverview');
             $table->timestamps();
