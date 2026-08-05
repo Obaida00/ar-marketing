@@ -16,6 +16,7 @@ return new class extends Migration {
                 ->unique()
                 ->constrained('items')
                 ->cascadeOnDelete();
+                $table->json('galleryPhotography')->nullable();
             $table->timestamps();
         });
     }

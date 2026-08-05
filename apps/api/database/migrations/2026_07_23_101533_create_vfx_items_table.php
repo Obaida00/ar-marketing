@@ -18,6 +18,8 @@ return new class extends Migration {
                 ->cascadeOnDelete();
 
             $table->text('overview');
+            $table->json('galleryVfx')->nullable();
+
 
             $table->text('result')->nullable();
             $table->timestamps();

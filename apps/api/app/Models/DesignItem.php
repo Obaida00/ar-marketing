@@ -9,8 +9,14 @@ class DesignItem extends Model
     protected $fillable = [
         'itemId',
         'brandOverview',
+        'galleryDesign',
+        'brand_goals',
     ];
 
+    protected $casts = [
+        'galleryDesign' => 'array',
+        'brand_goals'=>'array',
+    ];
     public function item()
     {
         return $this->belongsTo(Item::class);

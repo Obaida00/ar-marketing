@@ -15,12 +15,15 @@ class Item extends Model
         'featured',
         'status',
         'timeTook',
+        'images',
     ];
 
     protected $casts = [
         'featured' => 'boolean',
         'status' => 'boolean',
+        'images' => 'array',
     ];
+
 
     // العلاقات
 
@@ -49,14 +52,14 @@ class Item extends Model
         return $this->hasOne(VfxItem::class,'itemId');
     }
 
-    public function images()
-    {
-        return $this->hasMany(GalleryImage::class,'itemId');
-    }
+    // public function images()
+    // {
+    //     return $this->hasMany(GalleryImage::class,'itemId');
+    // }
 
-    public function technologies()
-    {
-        return $this->hasMany(Technology::class,'itemId');
-    }
+    // public function technologies()
+    // {
+    //     return $this->hasMany(Technology::class,'developmentItemsId');
+    // }
 
 }

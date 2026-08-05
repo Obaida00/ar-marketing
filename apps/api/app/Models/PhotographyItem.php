@@ -8,6 +8,10 @@ class PhotographyItem extends Model
 {
     protected $fillable = [
         'itemId',
+        'galleryPhotography',
+    ];
+    protected $casts = [
+        'galleryPhotography' => 'array',
     ];
     protected $table = 'photography_items';
 
