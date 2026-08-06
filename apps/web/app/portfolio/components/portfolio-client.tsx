@@ -3,10 +3,10 @@
 import { Field } from "@workspace/ui/components/field"
 import { Checkbox } from "@workspace/ui/components/checkbox"
 import { Input } from "@workspace/ui/components/input"
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Label } from "@workspace/ui/components/label"
 import { PortfolioItem } from "@/data/types"
-import { getItems, searchByTitle, searchByType } from "@/actions/portfolio-actions"
+import { getItems, searchByTitle, searchByType } from "@/app/actions/portfolio-actions"
 import { useDebounceValue } from "usehooks-ts"
 import PortfolioItemCard from "./portfolio-item-card"
 
@@ -28,7 +28,7 @@ export default function PortfolioClient() {
       const activeFilters = Object.keys(filters).filter(
         (key) => filters[key as keyof typeof filters]
       )
-
+ 
       let fetchedItems: PortfolioItem[] = []
 
       // 1. If there's a search query, fetch by title

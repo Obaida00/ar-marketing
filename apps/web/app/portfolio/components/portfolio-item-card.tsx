@@ -24,7 +24,8 @@ import {
   StarIcon,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Button } from "@workspace/ui/components/button"
+import { Button, buttonVariants } from "@workspace/ui/components/button"
+import Link from "next/link"
 
 type PortfolioCardShellProps = {
   image: string
@@ -32,14 +33,16 @@ type PortfolioCardShellProps = {
   itemCategory: "Development" | "Photography" | "Design" | "Vfx" | "Marketing"
   featured?: boolean
   status: "In Progress" | "Completed"
-  children: React.ReactNode
+  children?: React.ReactNode
   footer?: React.ReactNode
 }
 
 const StatusChip = ({ status }: { status: "In Progress" | "Completed" }) => {
   const variant = status === "In Progress" ? "outline" : "default"
   const style =
-    status === "Completed" ? "dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30 bg-emerald-100 text-emerald-800 border-emerald-200" : ""
+    status === "Completed"
+      ? "dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30 bg-emerald-100 text-emerald-800 border-emerald-200"
+      : ""
   return (
     <Badge variant={variant} className={style}>
       {status}
@@ -131,16 +134,21 @@ const DevelopmentPortfolioItemCard = ({
     status={item.status}
     footer={
       <>
-        <Button
-          variant={"outline"}
-          className="flex-1 justify-center sm:flex-none"
+        <Link
+          href={`/portfolio/${item.id}`}
+          className={buttonVariants({ variant: "outline" })}
         >
           Show details
-        </Button>
+        </Link>
         {item.status === "Completed" && (
-          <Button className="flex-1 justify-center sm:flex-none">
+          <a
+            href={(item as DevelopmentPortfolioItem).url || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${buttonVariants({ variant: "outline" })} flex-1 justify-center sm:flex-none ml-4`}
+          >
             Live preview <HugeiconsIcon icon={SquareArrowUpRightIcon} />
-          </Button>
+          </a>
         )}
       </>
     }
@@ -179,12 +187,12 @@ const PhotographyPortfolioItemCard = ({
     status={item.status}
     footer={
       <>
-        <Button
-          variant={"outline"}
-          className="flex-1 justify-center sm:flex-none"
+        <Link
+          href={`/portfolio/${item.id}`}
+          className={buttonVariants({ variant: "outline" })}
         >
           Show details
-        </Button>
+        </Link>
         {item.status === "Completed" && (
           <Button className="flex-1 justify-center sm:flex-none">
             View project gallery <HugeiconsIcon icon={Album02Icon} />
@@ -215,12 +223,14 @@ const VfxPortfoltioItemCard = ({ item }: { item: VFXPortfolioItem }) => (
     featured={item.featured}
     status={item.status}
     footer={
-      <Button
-        variant={"outline"}
-        className="flex-1 justify-center sm:flex-none"
-      >
-        Show details
-      </Button>
+      <>
+        <Link
+          href={`/portfolio/${item.id}`}
+          className={buttonVariants({ variant: "outline" })}
+        >
+          Show details
+        </Link>
+      </>
     }
   >
     <div className="rounded-xl border border-border/40 bg-muted/20 p-3">
@@ -246,12 +256,14 @@ const MarketingPortfolioItemCard = ({
     featured={item.featured}
     status={item.status}
     footer={
-      <Button
-        variant={"outline"}
-        className="flex-1 justify-center sm:flex-none"
-      >
-        Show details
-      </Button>
+      <>
+        <Link
+          href={`/portfolio/${item.id}`}
+          className={buttonVariants({ variant: "outline" })}
+        >
+          Show details
+        </Link>
+      </>
     }
   >
     <div className="rounded-xl border border-border/40 bg-muted/20 p-3">
@@ -281,12 +293,14 @@ const DesignPortfolioItemCard = ({
     featured={item.featured}
     status={item.status}
     footer={
-      <Button
-        variant={"outline"}
-        className="flex-1 justify-center sm:flex-none"
-      >
-        Show details
-      </Button>
+      <>
+        <Link
+          href={`/portfolio/${item.id}`}
+          className={buttonVariants({ variant: "outline" })}
+        >
+          Show details
+        </Link>
+      </>
     }
   >
     <div className="rounded-xl border border-border/40 bg-muted/20 p-3">
