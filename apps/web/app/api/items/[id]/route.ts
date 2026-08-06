@@ -8,25 +8,30 @@ async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const itemId = params.id
-    const response = await fetch(`${baseUrl}/api/items/${itemId}`, {
+    const {id} = await params
+    const response = await fetch(`${baseUrl}/api/items/${id}`, {
       headers: {
-        "Accept": "Application/json",
+        "Accept": "application/json",
+        "Content-Type": "application/json "
       }
     })
     if (!response.ok) {
       return NextResponse.json({
         status: response.status,
         message: response.statusText,
+        additional: "There has been an error"
       })
     }
     const data = await response.json()
+    console.log(data)
     return NextResponse.json({
       status: 200,
-      data,
+      ...data,
     })
   } catch (error) {
-    return NextResponse.json(error)
+    return NextResponse.json({
+      message: "There has been an error"
+    })
   }
 }
 
