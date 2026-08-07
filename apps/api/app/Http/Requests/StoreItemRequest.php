@@ -179,7 +179,7 @@ class StoreItemRequest extends FormRequest
             ],
 
             'images' => [
-                'sometimes',
+                'nullable',
                 'string'
             ],
 

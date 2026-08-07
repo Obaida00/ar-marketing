@@ -23,7 +23,7 @@ return new class extends Migration {
                 'photography',
                 'vfx'
             ]);
-             $table->string('images');
+             $table->string('images')->nullable();
 
             $table->boolean('featured')->default(false);
 
