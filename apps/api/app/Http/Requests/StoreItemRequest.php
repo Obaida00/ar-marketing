@@ -40,7 +40,7 @@ class StoreItemRequest extends FormRequest
                 'required'
             ],
 
-            'type' => [
+            'itemCategory' => [
                 'required',
                 Rule::in([
                     'development',
@@ -179,15 +179,15 @@ class StoreItemRequest extends FormRequest
             ],
 
             'images' => [
-                'required',
-                'array',
+                'nullable',
+                'string'
             ],
 
-            'images.*' => [
-                'string',
-                // 'mimes:jpg,jpeg,png,webp',
-                // 'max:2048',
-            ],
+            // 'images.*' => [
+            //     'string',
+            //     // 'mimes:jpg,jpeg,png,webp',
+            //     // 'max:2048',
+            // ],
             // 'technologies' => 'required|array',
 
             // 'technologies.*' => 'required|string|max:255',

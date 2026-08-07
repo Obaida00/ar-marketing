@@ -11,7 +11,7 @@ class Item extends Model
         'title',
         'slug',
         'description',
-        'type',
+        'itemCategory',
         'featured',
         'status',
         'timeTook',
@@ -21,7 +21,7 @@ class Item extends Model
     protected $casts = [
         'featured' => 'boolean',
         'status' => 'boolean',
-        'images' => 'array',
+        //'images' => 'array',
     ];
 
 
