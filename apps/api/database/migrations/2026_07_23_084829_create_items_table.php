@@ -16,14 +16,14 @@ return new class extends Migration {
             $table->string('slug')->unique();
             $table->longText('description');
 
-            $table->enum('type', [
+            $table->enum('itemCategory', [
                 'development',
                 'design',
                 'marketing',
                 'photography',
                 'vfx'
             ]);
-             $table->json('images');
+             $table->string('images');
 
             $table->boolean('featured')->default(false);
 

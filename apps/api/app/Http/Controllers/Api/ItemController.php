@@ -66,7 +66,7 @@ class ItemController extends Controller
                 'title' => $request->title,
                 'slug' => $request->slug,
                 'description' => $request->description,
-                'type' => $request->type,
+                'itemCategory' => $request->itemCategory,
                 'featured' => $request->featured,
                 'status' => $request->status,
                 'timeTook' => $request->timeTook,
@@ -74,7 +74,7 @@ class ItemController extends Controller
 
             ]);
 
-            switch ($request->type) {
+            switch ($request->itemCategory) {
 
                 case 'development':
 
@@ -206,7 +206,7 @@ class ItemController extends Controller
                 'images',
             ]));
 
-            switch ($item->type) {
+            switch ($item->itemCategory) {
 
                 case 'development':
 
@@ -353,7 +353,7 @@ class ItemController extends Controller
 
         }
     }
-    public function searchByType($type)
+    public function searchByType($itemCategory)
     {
         $items = Item::with([
             'development',
@@ -361,7 +361,7 @@ class ItemController extends Controller
             'marketing',
             'photography',
             'vfx'
-        ])->where('type', 'LIKE', "{$type}%")->orderBy('type')->get();
+        ])->where('itemCategory', 'LIKE', "{$itemCategory}%")->orderBy('itemCategory')->get();
 
         return response()->json($items, 200);
     }
@@ -373,7 +373,7 @@ class ItemController extends Controller
             'marketing',
             'photography',
             'vfx'
-        ])->where('type', $type)->orderBy('type')->get();
+        ])->where('itemCategory', $type)->orderBy('type')->get();
 
         return response()->json($items, 200);
     }
