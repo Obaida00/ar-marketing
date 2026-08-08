@@ -7,6 +7,7 @@ export type ProcessStep = {
 export interface Item {
   id: number
   title: string
+  slug: string
   description: string
   itemCategory: "برمجة وتطوير" | "تصوير" | "تصميم" | "مؤثرات بصرية" | "تسويق" | "أخرى"
   featured: boolean
@@ -49,6 +50,7 @@ export interface GraphicDesignPortfolioItem extends Item {
 export interface VFXPortfolioItem extends Item {
   result: string
   overview: string
+  gallery?: string[]
   category: "CGI" | "Motion Effects" | "Video Edits" | "Advertisment"
 }
 

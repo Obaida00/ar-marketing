@@ -4,6 +4,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 1,
     title: "Next.js Boilerplate",
+    slug: "next-js-boilerplate",
     itemCategory: "Development",
     description:
       "This is some kinda boilerplate you can start from instead of creating a template every single time you want to start a Next js application",
@@ -20,6 +21,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 2,
     title: "E-commerce Store",
+    slug: "e-commerce-store",
     itemCategory: "Development",
     description:
       "Full-featured e-commerce platform with product catalog, shopping cart, and payment integration",
@@ -41,6 +43,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 3,
     title: "Wedding Photography Portfolio",
+    slug: "wedding-photography-portfolio",
     itemCategory: "Photography",
     description:
       "Beautiful wedding photography collection capturing special moments from various ceremonies",
@@ -60,6 +63,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 4,
     title: "Brand Identity for Tech Startup",
+    slug: "brand-identity-for-tech-startup",
     itemCategory: "Design",
     description:
       "Complete brand identity system including logo, color palette, typography, and brand guidelines for a innovative tech startup",
@@ -81,6 +85,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 5,
     title: "Product Commercial VFX",
+    slug: "product-commercial-vfx",
     itemCategory: "Vfx",
     description:
       "Visual effects for a product commercial showcasing a new smartphone with magical particle effects and transitions",
@@ -98,6 +103,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 6,
     title: "Social Media Marketing Campaign",
+    slug: "social-media-marketing-campaign",
     itemCategory: "Marketing",
     description:
       "Comprehensive social media marketing campaign for a fashion brand targeting Gen Z audience across multiple platforms",
@@ -117,6 +123,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 7,
     title: "Fitness Tracking Mobile App",
+    slug: "fitness-tracking-mobile-app",
     itemCategory: "Development",
     description:
       "Cross-platform mobile application for tracking fitness activities, nutrition, and workout progress with social features",
@@ -139,6 +146,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 8,
     title: "Portrait Photography Series",
+    slug: "portrait-photography-series",
     itemCategory: "Photography",
     description:
       "Professional portrait photography series capturing individuals in various lighting conditions and settings",
@@ -158,6 +166,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 9,
     title: "Corporate Website Redesign",
+    slug: "corporate-website-redesign",
     itemCategory: "Design",
     description:
       "Complete redesign of a corporate website focusing on modern aesthetics, improved user experience, and mobile responsiveness",
@@ -179,6 +188,7 @@ export const portfolioData: PortfolioItem[] = [
   {
     id: 10,
     title: "Nature Documentary Video Editing",
+    slug: "nature-documentary-video-editing",
     itemCategory: "Vfx",
     description:
       "Professional video editing for a nature documentary featuring wildlife footage from various national parks",
