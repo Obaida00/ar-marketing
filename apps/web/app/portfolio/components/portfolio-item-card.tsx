@@ -132,7 +132,7 @@ const DevelopmentPortfolioItemCard = ({
     status={item.status}
     footer={
       <>
-        <Link href={`/portfolio/${item.slug}`} className="flex-1 sm:flex-none">
+        <Link href={`/portfolio/${item.id}`} className="flex-1 sm:flex-none">
           <Button variant={"outline"} className="w-full justify-center">
             Show details
           </Button>
@@ -153,10 +153,7 @@ const DevelopmentPortfolioItemCard = ({
       ))}
     </div>
     <div className="rounded-xl border border-border/40 bg-muted/20 p-3">
-      <CardDescription className="text-sm text-muted-foreground">
-        Project category: {item.category}
-      </CardDescription>
-      <CardDescription className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+      <CardDescription className="flex items-center gap-2 text-sm text-muted-foreground">
         <HugeiconsIcon icon={Clock01Icon} size={20}/> Time took: {item.timeTook}
       </CardDescription>
     </div>
@@ -179,7 +176,7 @@ const PhotographyPortfolioItemCard = ({
     status={item.status}
     footer={
       <>
-        <Link href={`/portfolio/${item.slug}`} className="flex-1 sm:flex-none">
+        <Link href={`/portfolio/${item.id}`} className="flex-1 sm:flex-none">
           <Button variant={"outline"} className="w-full justify-center">
             Show details
           </Button>
@@ -193,10 +190,7 @@ const PhotographyPortfolioItemCard = ({
     }
   >
     <div className="rounded-xl border border-border/40 bg-muted/20 p-3">
-      <CardDescription className="text-sm text-muted-foreground">
-        Project category: {item.category}
-      </CardDescription>
-      <CardDescription className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+      <CardDescription className="flex items-center gap-2 text-sm text-muted-foreground">
         <HugeiconsIcon icon={Clock01Icon} /> Time took: {item.timeTook}
       </CardDescription>
     </div>
@@ -214,19 +208,15 @@ const VfxPortfoltioItemCard = ({ item }: { item: VFXPortfolioItem }) => (
     featured={item.featured}
     status={item.status}
     footer={
-      <Button
-        variant={"outline"}
-        className="flex-1 justify-center sm:flex-none"
-      >
-        Show details
-      </Button>
+      <Link href={`/portfolio/${item.id}`} className="flex-1 sm:flex-none">
+        <Button variant={"outline"} className="w-full justify-center">
+          Show details
+        </Button>
+      </Link>
     }
   >
     <div className="rounded-xl border border-border/40 bg-muted/20 p-3">
-      <CardDescription className="text-sm text-muted-foreground">
-        Project category: {item.category}
-      </CardDescription>
-      <CardDescription className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+      <CardDescription className="flex items-center gap-2 text-sm text-muted-foreground">
         <HugeiconsIcon icon={Clock01Icon} /> Time took: {item.timeTook}
       </CardDescription>
     </div>
@@ -245,12 +235,11 @@ const MarketingPortfolioItemCard = ({
     featured={item.featured}
     status={item.status}
     footer={
-      <Button
-        variant={"outline"}
-        className="flex-1 justify-center sm:flex-none"
-      >
-        Show details
-      </Button>
+      <Link href={`/portfolio/${item.id}`} className="flex-1 sm:flex-none">
+        <Button variant={"outline"} className="w-full justify-center">
+          Show details
+        </Button>
+      </Link>
     }
   >
     <div className="rounded-xl border border-border/40 bg-muted/20 p-3">
@@ -280,19 +269,14 @@ const DesignPortfolioItemCard = ({
     featured={item.featured}
     status={item.status}
     footer={
-      <Button
-        variant={"outline"}
-        className="flex-1 justify-center sm:flex-none"
-      >
-        Show details
-      </Button>
+      <Link href={`/portfolio/${item.id}`} className="flex-1 sm:flex-none">
+        <Button variant={"outline"} className="w-full justify-center">
+          Show details
+        </Button>
+      </Link>
     }
   >
-    <div className="rounded-xl border border-border/40 bg-muted/20 p-3">
-      <CardDescription className="text-sm text-muted-foreground">
-        Project category: {item.category}
-      </CardDescription>
-    </div>
+
   </PortfolioCardShell>
 )
 

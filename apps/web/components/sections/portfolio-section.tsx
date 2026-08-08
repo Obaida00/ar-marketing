@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import SectionTemplate from "@/components/section-template"
 import SectionHeading from "@/components/section-heading"
 import { motion } from "motion/react"
-import { getItems } from "@/actions/portfolio-actions"
+import { getItems } from "@/app/actions/portfolio-actions"
 import { PortfolioItem } from "@/data/types"
 import PortfolioItemCard from "@/app/portfolio/components/portfolio-item-card"
 
