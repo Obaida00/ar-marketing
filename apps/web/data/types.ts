@@ -9,9 +9,9 @@ export interface Item {
   title: string
   slug: string
   description: string
-  itemCategory: "برمجة وتطوير" | "تصوير" | "تصميم" | "مؤثرات بصرية" | "تسويق" | "أخرى"
+  itemCategory: "Development" | "Photography" | "Design" | "Vfx" | "Marketing"
   featured: boolean
-  status: number
+  status: "Completed" | "In Progress"
   timeTook: string
   image: string
 }
