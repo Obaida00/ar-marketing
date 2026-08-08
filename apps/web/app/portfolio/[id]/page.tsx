@@ -5,6 +5,11 @@ import ProjectMetadata from "@/components/ProjectMetadata"
 import ProjectCTA from "@/components/ProjectCTA"
 import SectionDivider from "@/components/SectionDivider"
 import Image from "next/image"
+import Link from "next/link"
+import { buttonVariants } from "@workspace/ui/components/button"
+import { PlayIcon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { cn } from "@workspace/ui/lib/utils"
 import type {
   DevelopmentPortfolioItem,
   PhotographyPortfolioItem,
@@ -240,9 +245,18 @@ async function ProjectContent({ params }: { params: { id: string } }) {
                 <h3 className="mb-4 text-2xl font-semibold text-foreground">
                   Final Outcome
                 </h3>
-                <p className="text-lg leading-relaxed text-muted-foreground">
-                  {vfxItem.result}
-                </p>
+                <Link
+                  href={vfxItem.result}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ size: "lg", variant: "default" }),
+                    "px-8 py-6 text-base font-semibold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all"
+                  )}
+                >
+                  <HugeiconsIcon icon={PlayIcon} className="size-5 me-2" />
+                  مشاهدة النتيجة النهائية
+                </Link>
               </div>
             )}
           </div>
