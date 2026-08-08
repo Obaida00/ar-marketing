@@ -33,7 +33,7 @@ type PortfolioCardShellProps = {
   itemCategory: "Development" | "Photography" | "Design" | "Vfx" | "Marketing"
   featured?: boolean
   status: "In Progress" | "Completed"
-  children: React.ReactNode
+  children?: React.ReactNode
   footer?: React.ReactNode
 }
 

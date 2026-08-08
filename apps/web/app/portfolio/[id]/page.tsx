@@ -13,7 +13,7 @@ import type {
   MarketingPortfolioItem
 } from "@/data/types"
 
-export default async function Page({ params }: { params: { id: string } }) {
+async function ProjectContent({ params }: { params: { id: string } }) {
   const { id } = await params
   const item = await getItem(id)
 
@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       : "Unknown"
 
   // Handle Development Category
-  if (item.itemCategory === "برمجة وتطوير") {
+  if (item.itemCategory === "Development") {
     const devItem = item as DevelopmentPortfolioItem
     return (
       <>
@@ -93,7 +93,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   // Handle Photography Category
-  if (item.itemCategory === "تصوير") {
+  if (item.itemCategory === "Photography") {
     const photoItem = item as PhotographyPortfolioItem
     return (
       <>
@@ -150,7 +150,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   // Handle Graphic Design Category
-  if (item.itemCategory === "تصميم") {
+  if (item.itemCategory === "Design") {
     const designItem = item as GraphicDesignPortfolioItem
     return (
       <>
@@ -214,7 +214,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   // Handle VFX Category
-  if (item.itemCategory === "مؤثرات بصرية") {
+  if (item.itemCategory === "Vfx") {
     const vfxItem = item as VFXPortfolioItem
     return (
       <>
@@ -258,7 +258,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   // Handle Marketing Category
-  if (item.itemCategory === "تسويق") {
+  if (item.itemCategory === "Marketing") {
     const marketingItem = item as MarketingPortfolioItem
     return (
       <>
@@ -327,5 +327,19 @@ export default async function Page({ params }: { params: { id: string } }) {
         <p className="max-w-2xl text-muted-foreground">{item.description}</p>
       </div>
     </SectionTemplate>
+  )
+}
+
+export default async function Page({ params }: { params: { id: string } }) {
+  return (
+    <div className="relative min-h-screen bg-background overflow-hidden">
+      {/* Background Glows */}
+      <div className="fixed -top-100 -left-150 z-0 h-200 w-250 rounded-full bg-linear-to-br from-accent/20 to-primary/80 blur-[150px]" />
+      <div className="fixed -right-100 -bottom-160 z-0 h-230 w-200 rounded-full bg-linear-to-br from-primary/70 to-accent/20 blur-[100px]" />
+      
+      <div className="relative z-10">
+        <ProjectContent params={params} />
+      </div>
+    </div>
   )
 }
