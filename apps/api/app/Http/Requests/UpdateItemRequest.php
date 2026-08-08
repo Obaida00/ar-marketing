@@ -45,8 +45,7 @@ class UpdateItemRequest extends FormRequest
 
             'timeTook' => 'sometimes|integer|min:1',
 
-            'images' => 'sometimes|array',
-            'images.*' => 'string|max:255',
+            'image' => 'sometimes|string',
 
             // Development
             'url' => 'sometimes|url',

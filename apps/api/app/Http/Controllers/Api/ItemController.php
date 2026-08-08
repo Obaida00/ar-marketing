@@ -70,13 +70,13 @@ class ItemController extends Controller
                 'featured' => $request->featured,
                 'status' => $request->status,
                 'timeTook' => $request->timeTook,
-                'images' => $request->images,
+                'image' => $request->image,
 
             ]);
 
             switch ($request->itemCategory) {
 
-                case 'development':
+                case 'برمجة وتطوير':
 
                     $development = DevelopmentItem::create([
                         'itemId' => $item->id,
@@ -91,7 +91,7 @@ class ItemController extends Controller
 //     ]);}
                     break;
 
-                case 'design':
+                case 'تصميم':
 
                     DesignItem::create([
                         'itemId' => $item->id,
@@ -102,7 +102,7 @@ class ItemController extends Controller
 
                     break;
 
-                case 'marketing':
+                case 'تسويق':
 
                     MarketingItem::create([
                         'itemId' => $item->id,
@@ -112,7 +112,7 @@ class ItemController extends Controller
 
                     break;
 
-                case 'photography':
+                case 'تصوير':
 
                     PhotographyItem::create([
                         'itemId' => $item->id,
@@ -121,7 +121,7 @@ class ItemController extends Controller
 
                     break;
 
-                case 'vfx':
+                case 'مؤثرات بصرية':
 
                     VfxItem::create([
                         'itemId' => $item->id,
@@ -203,12 +203,12 @@ class ItemController extends Controller
                 'featured',
                 'status',
                 'timeTook',
-                'images',
+                'image',
             ]));
 
             switch ($item->itemCategory) {
 
-                case 'development':
+                case 'برمجة وتطوير':
 
                     if ($item->development) {
                         $item->development->update($request->only([
@@ -232,7 +232,7 @@ class ItemController extends Controller
 
                     break;
 
-                case 'design':
+                case 'تصميم':
 
                     if ($item->design) {
                         $item->design->update($request->only([
@@ -244,7 +244,7 @@ class ItemController extends Controller
 
                     break;
 
-                case 'marketing':
+                case 'تسويق':
 
                     if ($item->marketing) {
                         $item->marketing->update($request->only([
@@ -255,7 +255,7 @@ class ItemController extends Controller
 
                     break;
 
-                case 'photography':
+                case 'تصوير':
 
                     if ($item->photography) {
                         $item->photography->update($request->only([
@@ -265,7 +265,7 @@ class ItemController extends Controller
 
                     break;
 
-                case 'vfx':
+                case 'مؤثرات بصرية':
 
                     if ($item->vfx) {
 
