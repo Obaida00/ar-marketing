@@ -30,7 +30,13 @@ import Link from "next/link"
 type PortfolioCardShellProps = {
   image: string
   title: string
-  itemCategory: "Development" | "Photography" | "Design" | "Vfx" | "Marketing"
+  itemCategory:
+    | "Development"
+    | "Photography"
+    | "Design"
+    | "Vfx"
+    | "Marketing"
+    | "Other"
   featured?: boolean
   status: "In Progress" | "Completed"
   children?: React.ReactNode
@@ -53,7 +59,13 @@ const StatusChip = ({ status }: { status: "In Progress" | "Completed" }) => {
 const CategoryChip = ({
   category,
 }: {
-  category: "Development" | "Photography" | "Design" | "Vfx" | "Marketing"
+  category:
+    | "Development"
+    | "Photography"
+    | "Design"
+    | "Vfx"
+    | "Marketing"
+    | "Other"
 }) => {
   const portfolioCategoryStyles = {
     Development: "bg-blue-500/15 text-blue-400 border-blue-500/30",
@@ -61,6 +73,7 @@ const CategoryChip = ({
     Vfx: "bg-fuchsia-500/15 text-fuchsia-400 border-fuchsia-500/30",
     Design: "bg-orange-500/15 text-orange-400 border-orange-500/30",
     Marketing: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+    Other: "bg-slate-500/15 text-slate-400 border-slate-500/30",
   } as const
 
   return <Badge className={portfolioCategoryStyles[category]}>{category}</Badge>

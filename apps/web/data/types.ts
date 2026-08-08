@@ -8,9 +8,9 @@ export interface Item {
   id: number
   title: string
   description: string
-  itemCategory: "Development" | "Photography" | "Design" | "Vfx" | "Marketing"
+  itemCategory: "برمجة وتطوير" | "تصوير" | "تصميم" | "مؤثرات بصرية" | "تسويق" | "أخرى"
   featured: boolean
-  status: "In Progress" | "Completed"
+  status: number
   timeTook: string
   image: string
 }
@@ -37,6 +37,7 @@ export interface GraphicDesignPortfolioItem extends Item {
   brandOverview: string
   brandGoals: string[]
   technologies: string[]
+  gallery: string[] | null
   category:
     | "Branding"
     | "Mockup"

@@ -23,8 +23,8 @@ const normalizeItem = (item: any): PortfolioItem => {
       item.status == true || item.status == 1 ? "Completed" : "In Progress",
     timeTook: item.timeTook ? `${item.timeTook} Days` : "Unknown",
     image:
-      item.images && item.images.length > 0
-        ? item.images[0].url
+      item.image
+        ? item.image
         : "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=2026&auto=format&fit=crop",
     
     // Development specific
@@ -91,6 +91,7 @@ export async function createItem(
     const response = await fetch(`${baseUrl}/api/items`, {
       method: "POST",
       headers: {
+        "Accept" : "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(item),
@@ -100,9 +101,9 @@ export async function createItem(
     }
     const data = await response.json()
     // Assuming the response structure is { item: ... }
-    return data.item
+    return data
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return null
   }
 }
